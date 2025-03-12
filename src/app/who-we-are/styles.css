@@ -1,0 +1,26 @@
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-right: 100px solid transparent;
+}
+
+.our-studio-section {
+}
+
+/* WHO WE ARE OF OUR STUDIOS SECTION STYLES HERE */
+
+.our-studio-section .embla__container {
+  display: flex;
+  gap: 10px;
+  touch-action: pan-y pinch-zoom;
+  /* margin-left: calc(var(--slide-spacing) * -1); */
+}
+.our-studio-section .embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 20%;
+  min-width: 0;
+  max-width: 236px;
+  max-height: 136px;
+  /* padding-left: var(--slide-spacing); */
+}
