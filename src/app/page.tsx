@@ -4,19 +4,16 @@ import Head from 'next/head';
 import * as React from 'react';
 import '@/lib/env';
 
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import "./styles/styles.css"
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-import Logo from '~/svg/Logo.svg';
+import { AboutUs } from '@/app/_sections/about-us';
+import { CommunityBlogSection } from '@/app/_sections/community-blog-section';
+import { CraftOurNextGames } from '@/app/_sections/craft-our-next-games';
+import { FooterTopSection } from '@/app/_sections/footer-top-section';
+import { NewsSection } from '@/app/_sections/news-section';
+import { OurFact } from '@/app/_sections/our-fact';
+import { OurGameSection } from '@/app/_sections/our-game';
+import { UserFeedback } from '@/app/_sections/user-feedback';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -28,7 +25,7 @@ export default function HomePage() {
       <Head>
         <title>Hi</title>
       </Head>
-      <section className='bg-white'>
+      {/* <section className='bg-white'>
         <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
           <Logo className='w-16' />
           <h1 className='mt-4'>Next.js + Tailwind CSS + TypeScript Starter</h1>
@@ -50,7 +47,6 @@ export default function HomePage() {
             href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
             className='mt-4'
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               width='92'
               height='32'
@@ -66,7 +62,28 @@ export default function HomePage() {
             </UnderlineLink>
           </footer>
         </div>
+      </section> */}
+
+      <section className="header-hero min-h-screen w-screen flex items-center justify-center">
+        <div className=" space-x-32 pt-40">
+          <button className="uppercase font-semibold text-white p-3 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A] px-10 roboto-fonts">
+            {" "}
+            I'm brand new{" "}
+          </button>
+          <button className="uppercase font-semibold text-white p-3 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A] px-10 roboto-fonts">
+            {" "}
+            I'm brand new{" "}
+          </button>
+        </div>
       </section>
+      <OurGameSection />
+      <NewsSection />
+      <CraftOurNextGames />
+      <AboutUs />
+      <OurFact />
+      <UserFeedback />
+      <CommunityBlogSection />
+      <FooterTopSection />
     </main>
   );
 }
