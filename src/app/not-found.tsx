@@ -1,24 +1,36 @@
-import { ShieldAlert } from 'lucide-react';
-import { Metadata } from 'next';
-import * as React from 'react';
-
-export const metadata: Metadata = {
-  title: 'Not Found',
-};
+"use client";
+import { APP_ROUTES } from "@/lib/utils";
+import { ArrowLeftIcon } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function NotFound() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return <div className="h-screen w-screen flex justify-center items-center">{isClient && <LottieAnimation />}</div>;
+}
+
+function LottieAnimation() {
+
+
+
+;
+
   return (
-    <main>
-      <section className='bg-white'>
-        <div className='layout flex min-h-screen flex-col items-center justify-center text-center text-black'>
-          <ShieldAlert
-            size={60}
-            className='drop-shadow-glow animate-flicker text-red-500'
-          />
-          <h1 className='mt-8 text-4xl md:text-6xl'>Page Not Found</h1>
-          <a href='/'>Back to home</a>
-        </div>
-      </section>
-    </main>
+    <div className="h-screen">
+ 
+      <div className="flex justify-center items-center mb-16 ">
+        <Link href={`/${APP_ROUTES.DASHBOARD}`}>
+          <button className=" bg-blue-500">
+            <ArrowLeftIcon/>
+            Go to Home
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 }

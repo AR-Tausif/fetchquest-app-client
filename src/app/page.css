@@ -1,0 +1,87 @@
+.header-hero {
+    background: url(https://s3-alpha-sig.figma.com/img/33be/85c2/dc10ba65704a64a8fdb747f9d728fea7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=NnLGK-wh2vBKF2tTM1k6qbks7uvhiY5rPs1dHriWbDUOAge8LHAPFzJR8Z0fc-~yHNrSvLWXbfur-NY1PlomQ5EgZvLmrkn-Zz2PVz1u6-IK0bgaBBOjP-XidXutKgQg3eqAETu5ZyKAtIIXTWdSI7u81fhduM4jWzTj8dzha~qYJ-B2Ud5c2LEc~7hQbCsQ3dwNwMuZ4W7Kv07KMxF4lAvrUUboJl3Gtzk3uZYwBuv-rmhdzwqJAtGVzZRlBiCS9a44m8ngElWeW7Gz-5vCErhSO1GRVUibW2fpqLaUicm4-IjuXItWAY8bUR01VjZEmjpLrYVXD8I1D4Y1Zsa6qQ__);
+    background-size: cover; /* Ensures the background covers the element fully */
+    background-position: center; /* Centers the background image */
+  }
+  
+  /* sections background image styles here */
+  .our-games {
+    background: url(https://s3-alpha-sig.figma.com/img/0c50/e478/175bbb4cf2c042133a473f963c88f14f?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HaI-BoxP5gR-pseQcunTmkOOBlDEowAmpkYBuaZFJW2YQV8UXNCwUI-bFDy~P9O~t9SP491nsJBe7trQqe5DoZC88p~rWnQFBldoZCBsdMhUgd27xG8spqcVhSQXwWacoTiYTwc709S98zx6u0tbYotNImZXJyC-mMjxm455VrXr95c~7bapUIVioRC03jWxg9O-VwDnK~P3RMKa2dsGVYaD4P-QVA25qVzF7N~-wKAJ3zvnK3J6SIJ3wp4oSdL3Zje22NB4xtWRbEsb1jESfyAl4SoPzQzz132ehiXNf5WQ0h96XwcE1lCheiQ0V2MOx74vyb6dQKXH4kNyPOLv6A__);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .craft-next-game-section {
+    background: url(https://s3-alpha-sig.figma.com/img/75c7/251f/bb36e99a7517586bfab1e9cf3b8c7b93?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=PJSHqC-g7CZwUMG13MWVnwOJ2HTR8YBhY3UepAWP2tDL4qTGN3DvhPc2MKd0NfzU9cbJTYdAfQxkQMEXZCDbSa8gvckU0oYLZHskS8b4b~7YJN6~fRdgmOVwRmH932Qqg6EotCZC2XLjyHxdQn0a6rICuSyYXVNfIxJU6KAImv1xthp1zU1fvajBv8gYOx3Uk19QgIfq0UC3TSZJgX0dnhYidzZCAIfdr4J67tDbxJiN2e-KaZe2FPYSDyP~swxi70QKB4VlrwiBZ0TMI7t3pbFVI~xIHxeMBgELTBuJOotRB4uLOx7blAeH2XfoDJ27OmPa~a3IqjPvcN646nYVLg__);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .low-opacity-bg-image {
+    --bg-image: url(https://s3-alpha-sig.figma.com/img/0c50/e478/175bbb4cf2c042133a473f963c88f14f?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HaI-BoxP5gR-pseQcunTmkOOBlDEowAmpkYBuaZFJW2YQV8UXNCwUI-bFDy~P9O~t9SP491nsJBe7trQqe5DoZC88p~rWnQFBldoZCBsdMhUgd27xG8spqcVhSQXwWacoTiYTwc709S98zx6u0tbYotNImZXJyC-mMjxm455VrXr95c~7bapUIVioRC03jWxg9O-VwDnK~P3RMKa2dsGVYaD4P-QVA25qVzF7N~-wKAJ3zvnK3J6SIJ3wp4oSdL3Zje22NB4xtWRbEsb1jESfyAl4SoPzQzz132ehiXNf5WQ0h96XwcE1lCheiQ0V2MOx74vyb6dQKXH4kNyPOLv6A__);
+    --bg-image-opacity: 0.25;
+    position: relative;
+    isolation: isolate;
+  }
+  .low-opacity-bg-image::after {
+    content: "";
+    position: absolute;
+    background: #161515;
+    inset: 0;
+    opacity: var(--bg-image-opacity);
+    z-index: -1;
+  }
+  
+  .our-game-text-stroke {
+    font-size: 20vmin;
+    letter-spacing: 5px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+  }
+  
+  /* OUR GAMES SECTION STYLES HERE */
+  
+  .our-games .embla__container {
+    display: flex;
+    gap: 72px;
+    touch-action: pan-y pinch-zoom;
+    /* margin-left: calc(var(--slide-spacing) * -1); */
+  }
+  
+  .our-games .embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 25%;
+    min-width: 0;
+    /* padding-left: var(--slide-spacing); */
+  }
+  
+  /* NEWS FETCH FROM QUEST SECTION STYLES HERE */
+  
+  .news-fetch-quest .embla__container {
+    display: flex;
+    gap: 16px;
+    touch-action: pan-y pinch-zoom;
+    /* margin-left: calc(var(--slide-spacing) * -1); */
+  }
+  .news-fetch-quest .embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 20%;
+    min-width: 0;
+    /* padding-left: var(--slide-spacing); */
+  }
+  /* USER TESTIMONIALS SECTION STYLES HERE */
+  
+  .user-testimonials .embla__container {
+    display: flex;
+    gap: 30px;
+    touch-action: pan-y pinch-zoom;
+    /* margin-left: calc(var(--slide-spacing) * -1); */
+  }
+  .user-testimonials .embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 49%;
+    min-width: 0;
+    /* padding-left: var(--slide-spacing); */
+  }
+  
