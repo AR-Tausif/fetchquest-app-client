@@ -8,7 +8,7 @@ export const SectionHeading = ({
 }) => {
   return (
     <h4
-      className={`uppercase text-[4vw] font-semibold py-4 ${className}`}
+      className={`uppercase text-[3vw] font-semibold py-4 ${className}`}
       {...props}
     >
       {title}

@@ -1,7 +1,6 @@
-import { LucideIcon } from 'lucide-react';
+import { Loader2, LucideIcon } from 'lucide-react';
 import * as React from 'react';
 import { IconType } from 'react-icons';
-import { ImSpinner2 } from 'react-icons/im';
 
 import { cn } from '@/lib/utils';
 
@@ -35,7 +34,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       classNames,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const disabled = isLoading || buttonDisabled;
 
@@ -89,7 +88,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           'disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          className
+          className,
         )}
         {...rest}
       >
@@ -101,16 +100,16 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
                 'text-white': ['primary', 'dark'].includes(variant),
                 'text-black': ['light'].includes(variant),
                 'text-primary-500': ['outline', 'ghost'].includes(variant),
-              }
+              },
             )}
           >
-            <ImSpinner2 className='animate-spin' />
+            <Loader2 className='animate-spin' />
           </div>
         )}
         {Icon && <Icon size='1em' className={cn(classNames?.icon)} />}
       </button>
     );
-  }
+  },
 );
 
 export default IconButton;
