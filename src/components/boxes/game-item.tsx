@@ -1,11 +1,10 @@
 import Image from "next/image";
+import { GameItemHorizontalLine } from "../lines";
 
 export const GameItemBox = () => {
   return (
     <div className="w-[272px]">
-      <div className="bg-black px-2 flex items-center justify-around">
-        <div className="w-0.5 h-6 bg-white"></div>
-      </div>
+      <GameItemHorizontalLine />
       <div className="border-2 p-2 text-center">
         <Image
           className="w-full h-full"
@@ -15,27 +14,16 @@ export const GameItemBox = () => {
           height={100}
         />
       </div>
-      {/* <div className="relative w-full h-10 bg-black flex items-center px-4">
-      <div className="flex space-x-1">
-        <div className="w-1 h-6 bg-white rotate-[-20deg]"></div>
-        <div className="w-1 h-6 bg-white rotate-[-20deg]"></div>
-        <div className="w-1 h-6 bg-white rotate-[-20deg]"></div>
-        <div className="w-1 h-6 bg-white rotate-[-20deg]"></div>
-        <div className="w-1 h-6 bg-white rotate-[-20deg]"></div>
-      </div>
-
-      <div className="ml-4 h-6 w-3/4 bg-gradient-to-r from-pink-500 to-purple-600"></div>
-
-      <div className="absolute left-10 top-0 h-10 w-12 bg-black rotate-[-20deg]"></div>
-      <div className="absolute left-16 top-0 h-10 w-12 bg-pink-500 rotate-[-20deg]"></div>
-    </div> */}
-      <div className="bg-black px-2 flex items-center justify-around">
+      <GameItemHorizontalLine className="flex-row-reverse" />
+      {/* <div className="bg-black px-2 flex items-center justify-around">
         <div className="w-0.5 h-6 bg-white"></div>
         <div className="w-0.5 h-6 bg-white"></div>
-      </div>
+      </div> */}
       <div className="text-center py-4">
-        <h4 className="uppercase text-2xl">Gamepads</h4>
-        <p>22 product a $69.9</p>
+        <h4 className="uppercase text-2xl text-white">Gamepads</h4>
+        <p className="text-xl w-3/6 mx-auto text-gray-200">
+          22 product Available
+        </p>
       </div>
     </div>
   );
