@@ -6,10 +6,10 @@ export const GamingProductShowing = () => {
   return (
     <div className="h-screen">
       <div className="text-center">
-        <div className="py-8">
-          <SectionHeading title="Igniting a lifelong passion" />
+        <div className="pt-8">
+          <SectionHeading title="Igniting a lifelong passion" className="pb-0" />
         </div>
-        <p className="w-1/3 mx-auto">
+        <p className="w-1/3 mx-auto pb-8">
           Looking for more? NexaGear has a full lineup of gaming accessories,
           from mousepads to headsets, that bring comfort, precision, and style
           to your setup.

@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { GameItemHorizontalLine } from "../lines";
+import Link from "next/link";
 
 export const GameItemBox = () => {
   return (
-    <div className="w-[272px]">
+    <div className="w-[30%]">
+      <Link href="/pricing">
       <GameItemHorizontalLine />
       <div className="border-2 p-2 text-center">
         <Image
@@ -12,19 +14,20 @@ export const GameItemBox = () => {
           alt="Game Item Photo"
           width={100}
           height={100}
-        />
+          />
       </div>
       <GameItemHorizontalLine className="flex-row-reverse" />
       {/* <div className="bg-black px-2 flex items-center justify-around">
         <div className="w-0.5 h-6 bg-white"></div>
         <div className="w-0.5 h-6 bg-white"></div>
-      </div> */}
-      <div className="text-center py-4">
-        <h4 className="uppercase text-2xl text-white">Gamepads</h4>
-        <p className="text-xl w-3/6 mx-auto text-gray-200">
+        </div> */}
+      <div className="text-center py-1">
+        <h4 className="uppercase text-xl text-white">Gamepads</h4>
+        <p className="text-sm mx-auto text-gray-200">
           22 product Available
         </p>
       </div>
+        </Link>
     </div>
   );
 };
