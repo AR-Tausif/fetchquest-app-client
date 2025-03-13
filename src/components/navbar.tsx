@@ -81,7 +81,7 @@ export const Navbar = () => {
                 <p>Customer Support</p>
               </li>
             </Link>
-            <Link href="/my-account">
+            <Link href="/sign-up">
               <li className="flex gap-x-2">
                 <CircleUserRound className="primary-icon" />
                 <p>My Account</p>
