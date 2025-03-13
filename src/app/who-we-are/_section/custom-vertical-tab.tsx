@@ -1,8 +1,13 @@
 import { AppButton } from "@/components/buttons/app-button";
+import { TSingleGameOverview } from "@/types/index";
 import Image from "next/image";
 import { useState } from "react";
 
-export const CustomVerticalTab = ({ gamesOverviews }) => {
+export const CustomVerticalTab = ({
+  gamesOverviews,
+}: {
+  gamesOverviews: TSingleGameOverview[];
+}) => {
   const [gameId, setGameId] = useState(0);
   console.log({ gameId, game: gamesOverviews[gameId] });
   return (
