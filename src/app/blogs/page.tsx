@@ -1,11 +1,17 @@
 "use client";
-import { BlogInnerCard, BlogNewsCard, NewsBlogCard } from "@/components/cards";
+import {
+  BlogInnerCard,
+  BlogNewsCard,
+  NewsBlogCard,
+  PaginationCard,
+} from "@/components/cards";
 import { Container } from "@/components/container";
 import { BlogHeroSection } from "./_sections/hero-section";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { NewsSearchInput, NewsSelectInput } from "@/components/forms";
 import { ArrowRight } from "lucide-react";
 import { GredientPragraphLittleBox } from "@/components/boxes";
+import Link from "next/link";
 
 const BlogPage = () => {
   const handleOnblur = (e: InputEvent) => {
@@ -38,10 +44,14 @@ const BlogPage = () => {
 
           {/* all blog posts */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+            <Link href="/blogs/1">
             <BlogNewsCard />
+            </Link>
             <BlogNewsCard />
             <BlogNewsCard />
           </div>
+          {/* pagination */}
+          <PaginationCard />
         </section>
       </Container>
     </div>
