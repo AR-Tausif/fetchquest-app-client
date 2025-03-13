@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 border">
       <Container>
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-3xl p-6">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-3xl py-2">
           <div className="flex items-center gap-x-3">
             <Link
               href="/"
@@ -29,22 +29,22 @@ export const Navbar = () => {
             </Link>
             <ul className="flex gap-6 uppercase font-bold">
               <li
-                className="flex items-center gap-x-2"
+                className="flex items-center gap-x-2 hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
                 <p>Games</p> <ChevronDown className="primary-icon" />
               </li>
-              <li className="flex items-center gap-x-2">
+              <li className="flex items-center gap-x-2 hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer">
                 <p>Join Us</p> <ChevronDown className="primary-icon" />
               </li>
-              <li>
+              <li className="hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer active:text-[#da5da3]">
                 <Link href="/who-we-are">
                   <p>Who we are</p>
                 </Link>
               </li>
               <li>
                 <Link href="/blogs">
-                  <p>News</p>
+                  <p className="hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer">News</p>
                 </Link>
               </li>
             </ul>

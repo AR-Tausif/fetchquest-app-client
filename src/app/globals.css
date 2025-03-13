@@ -99,3 +99,9 @@
 .slice-3 { background: #34d399; transform: rotate(180deg) skewY(-45deg); }
 .slice-4 { background: #fbbf24; transform: rotate(270deg) skewY(-45deg); }
 
+
+
+/* FOR APP ICONS STYLES HERE */
+.primary-icon {
+  color: #da5da3;
+}

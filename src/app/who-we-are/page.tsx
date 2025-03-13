@@ -9,6 +9,7 @@ import { OurFact } from '@/app/_sections/our-fact';
 import { GamerOverviewSection } from './_section/gamer-overviews';
 import { GamingProductShowing } from './_section/gaming-product-showing';
 import { OurStudios } from './_section/our-studios';
+import { VideoEmbed } from '@/components/VideoEmbed';
 
 const WhoWeAre = () => {
   const gellaryContent = [
@@ -41,7 +42,9 @@ const WhoWeAre = () => {
   return (
     <div className='overflow-hidden'>
       {/* header hero section */}
-      <div className='w-screen min-h-[40vh] bg-[url(https://s3-alpha-sig.figma.com/img/0c50/e478/175bbb4cf2c042133a473f963c88f14f?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QjHzfcRiK4MRoKoyDewXUUWzWC9mV3cJs3h6ox01eQqdcvx5PdZ-t8qf4oKhPgUbMi8EJ70sUQpN0punbxU2~VF73~zWq8o8axdnKbkOC-MffDIJmuLg-mb2iaOjlVwccnCguoxRYfCuZLvu6dv-qo8ELsE4FGILAVybmTchbiQHtRJfHt-L16FVqTFPijTIRj5STZMMpD1riM0UEdQNmeIxXwbN-PP9OV4OZyh6vyqLmVaXI-4APtgpFvpOfx4Qy202N7fVMoyvtTnUCQoZ9Fy0cOoYCRIm7XaWWkqO4i8dSuSOJK7xgCCsPD1g847AyvyUlVIAEoEbxUvOXDEK-g__)] bg-no-repeat  bg-cover bg-center'></div>
+      <div className='w-screen min-h-[40vh] bg-[url(https://s3-alpha-sig.figma.com/img/0c50/e478/175bbb4cf2c042133a473f963c88f14f?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QjHzfcRiK4MRoKoyDewXUUWzWC9mV3cJs3h6ox01eQqdcvx5PdZ-t8qf4oKhPgUbMi8EJ70sUQpN0punbxU2~VF73~zWq8o8axdnKbkOC-MffDIJmuLg-mb2iaOjlVwccnCguoxRYfCuZLvu6dv-qo8ELsE4FGILAVybmTchbiQHtRJfHt-L16FVqTFPijTIRj5STZMMpD1riM0UEdQNmeIxXwbN-PP9OV4OZyh6vyqLmVaXI-4APtgpFvpOfx4Qy202N7fVMoyvtTnUCQoZ9Fy0cOoYCRIm7XaWWkqO4i8dSuSOJK7xgCCsPD1g847AyvyUlVIAEoEbxUvOXDEK-g__)] bg-no-repeat  bg-cover bg-center'>
+      <VideoEmbed/>
+      </div>
 
       <div className='py-16 bg-[url(https://s3-alpha-sig.figma.com/img/41dd/5594/517be32273d495af450b6c5040436a82?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cwCVTVg4DsBp0qFVNWuU42~dkkU1cyZfqvRV~g9RiOt1f8qMHmz-Bz34pd3NKpEw5QKxLN1hjyAankersPp-qrHMsgMzQ3fzRy-~i-8dKXQAposhCH80oFueHctXd3ltZfYtUEFmCkxu~6X5JFdaMz~F5GBIdIcAT1HT8IaplweOwxrJp6~-ZETw52GRjz0rg~HmBj785DWvtnHZ2u3UliuM84TIt2ZwfbzBVMyzjyUF-ZPj24NJfoML91Ud7XJfCi3lUw6ABkOkJD75C3xW2cW4jFhMpNps-EeDIxzpw2dYf8pwvk7oDDhXhfK564EhGxo2fikbNN3KN8zJ~Eu-wQ__)] bg-no-repeat bg-cover'>
         <SectionHeading

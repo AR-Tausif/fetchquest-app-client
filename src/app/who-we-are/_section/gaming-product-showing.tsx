@@ -4,7 +4,7 @@ import { HorizontalAccordion } from "./horizontal-accordio";
 
 export const GamingProductShowing = () => {
   return (
-    <div className="h-screen">
+    <div className="after:content-[''] after:bg-red-500 after:absolute after:bottom-0 w-">
       <div className="text-center">
         <div className="pt-8">
           <SectionHeading title="Igniting a lifelong passion" className="pb-0" />
