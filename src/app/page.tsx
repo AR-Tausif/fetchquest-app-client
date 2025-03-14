@@ -24,13 +24,12 @@ export default function HomePage() {
       <Head>
         <title>Hi</title>
       </Head>
-      <section className="header-hero min-h-screen w-screen flex items-center justify-center">
-        <div className=" space-x-32 pt-40">
-          <button className="uppercase font-semibold text-white p-3 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A] px-10 roboto-fonts">
+      <section className="header-hero relative min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat">
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-32 pt-20 md:pt-40 px-4 md:px-0">
+          <button className="w-full md:w-auto uppercase font-semibold text-white p-3 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A] px-6 md:px-10 roboto-fonts transition-all hover:opacity-90">
             {"I'm"} brand new
           </button>
-          <button className="uppercase font-semibold text-white p-3 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A] px-10 roboto-fonts">
-            {" "}
+          <button className="w-full md:w-auto uppercase font-semibold text-white p-3 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A] px-6 md:px-10 roboto-fonts transition-all hover:opacity-90">
             {"I'm"} brand new
           </button>
         </div>

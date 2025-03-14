@@ -53,7 +53,7 @@ export const AboutUs = () => {
         </div>
 
         {/* Games Grid Section */}
-        <div className="w-full md:w-1/2 relative border-blue-500 pt-20">
+        <div className="w-full md:w-1/2 relative border-blue-500 pt-20 hidden md:block">
           {/* Logo */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-32 z-10">
             <Image

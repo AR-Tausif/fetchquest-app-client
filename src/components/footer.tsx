@@ -1,18 +1,21 @@
-import Image from 'next/image';
+import Image from "next/image";
+import { LogoAndSocialIcons } from "./boxes";
+import { link } from "fs";
+import Link from "next/link";
 
 // Constants for social media icons
 const SOCIAL_ICONS = [
   {
-    src: '/images/social-logo/vector.svg',
-    alt: 'Vector Image',
+    src: "/images/social-logo/vector.svg",
+    alt: "Vector Image",
   },
   {
-    src: '/images/social-logo/discord.svg',
-    alt: 'Discord',
+    src: "/images/social-logo/discord.svg",
+    alt: "Discord",
   },
   {
-    src: '/images/social-logo/instagram.svg',
-    alt: 'Instagram',
+    src: "/images/social-logo/instagram.svg",
+    alt: "Instagram",
   },
 ] as const;
 
@@ -28,92 +31,70 @@ const SOCIAL_ICON_SIZE = {
 // } as const;
 
 export const Footer = () => {
+  const footerLinks = [
+    {
+      title: "LEGAL",
+      links: [
+        { href: "/", label: "Code" },
+        { href: "/", label: "Privacy" },
+        { href: "/", label: "Term Of Use" },
+        { href: "/", label: "Customer Support" },
+      ],
+    },
+    {
+      title: "Brands",
+      links: [
+        { href: "/", label: "Duel Masters" },
+        { href: "/", label: "Dungeons & Dragons" },
+        { href: "/", label: "Magic: The Gathering" },
+      ],
+    },
+    {
+      title: "COMPANY",
+      links: [
+        { href: "/", label: "About" },
+        { href: "/", label: "Careers" },
+        { href: "/", label: "Support" },
+      ],
+    },
+  ];
   return (
-    <footer className='robot-fonts bg-gradient-to-t to-[#53083A] from-[#2D0844] text-white'>
-      <div className='container px-5 py-24 mx-auto'>
-        <div className='flex md:text-left text-center'>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='text-white tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li>
-                <a className='text-white hover:text-gray-50'>First Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Second Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Third Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='title-font font-medium text-white tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li>
-                <a className='text-white hover:text-gray-50'>First Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Second Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Third Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <h2 className='title-font font-medium text-white tracking-widest text-sm mb-3'>
-              CATEGORIES
-            </h2>
-            <nav className='list-none mb-10'>
-              <li>
-                <a className='text-white hover:text-gray-50'>First Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Second Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Third Link</a>
-              </li>
-              <li>
-                <a className='text-white hover:text-gray-50'>Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
-            <Image
-              src='/images/large-logo-img.png'
-              alt=''
-              width={100}
-              height={100}
-            />
+    <footer className="robot-fonts bg-gradient-to-t to-[#53083A] from-[#2D0844] text-white">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="flex flex-wrap md:text-left text-center">
+          {footerLinks.map((footerItem) => (
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="text-white font-semibold tracking-widest text-sm mb-3">
+                {footerItem.title ? footerItem.title : "Take a refresh"}
+              </h2>
 
-            <div className='flex items-center gap-8 mt-10 ml-2'>
-              {SOCIAL_ICONS.map((icon) => (
-                <Image
-                  key={icon.alt}
-                  src={icon.src}
-                  alt={icon.alt}
-                  {...SOCIAL_ICON_SIZE}
-                />
-              ))}
+              <nav className="list-none mb-10">
+                {footerItem.links.map((item) => (
+                  <li>
+                    <Link
+                      href={item.href}
+                      className="text-gray-300 hover:text-gray-50"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </nav>
             </div>
+          ))}
+
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4 flex flex-col justify-center items-center gap-4">
+            <LogoAndSocialIcons
+              logoClassName="w-[100px] h-[100px] md:w-[120px] md:h-[130px]"
+              socialImageClassName="w-50px md:w-[40px]"
+            />
           </div>
         </div>
       </div>
-      <div className='text-center'>
+      <div className="text-center text-sm">
         <p>
-          © 1993-2025 Wizards of the Coast LLC, a subsidiary of Hasbro, Inc.
-          All Rights Reserved.
+          © 1993-2025 Wizards of the Coast LLC, a subsidiary of Hasbro, Inc. All
+          Rights Reserved.
         </p>
       </div>
     </footer>

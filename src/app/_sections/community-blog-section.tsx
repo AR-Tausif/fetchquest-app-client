@@ -14,9 +14,9 @@ export const CommunityBlogSection = () => {
   return (
     <div className=''>
       <Container>
-        <div className='flex justify-between items-center'>
-          <div className='pb-10'>
-            <SectionHeading title='Community & blog section' />
+        <div className='flex justify-between items-center pb-10'>
+          <div className=''>
+            <SectionHeading title='Community & blogs' />
           </div>
 
           <div className='flex gap-x-4'>

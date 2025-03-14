@@ -7,9 +7,12 @@ import { EmblaCarousel } from "@/components/carousle";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 
-
 export const NewsSection = () => {
-  const OPTIONS: EmblaOptionsType = { containScroll: false, align: "start" };
+  const OPTIONS: EmblaOptionsType = {
+    containScroll: false,
+    align: "start",
+    breakpoints: { "(min-width: 768px)": { align: "start", dragFree:true } },
+  };
   const SLIDE_COUNT = 10;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   const [emblaRef] = useEmblaCarousel(OPTIONS);
