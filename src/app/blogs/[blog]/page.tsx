@@ -10,7 +10,7 @@ const Blog = ({ params }: IProps) => {
   console.log({ params }, "sajutyjkjj");
   return (
     <Container>
-      <div className="space-y-6">
+      <div className="space-y-6 px-4">
         <div className="px-20">
           <VideoEmbed placeholderImage="https://s3-alpha-sig.figma.com/img/6b66/731b/360e0c3606af3f363e3650077dcced85?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=WYNsO3UV5ZOP-LwwdXb5BNcH5avOoeHT9CYuFC5cSJ-vP1Jmw8v02FPwkYbgu9hpoOEPu2ArIf6nVArV--rGaopRU0pL6WmAHNxhj6ELYSfu3OHNErn7o-T1NNR6rOlFbxRxfLv4l9lX9Uu-7S3bYMoSDDhXDhP9sMKktLiowpA~vhMo2QYxcCQUVNdtUR0hP42qwAkY8pyPyskFOQAlh5OjOZq-nBlQBn0ysfIwE7pTJ7N08YFYnWt1Dz~qvnl6A4ryyyWkS0selLxeVaGyZI0RKg05dImApP4gNg-6g6~1IQZxNtz0HQbfBmJ84fLvygDy6C5oCiyHkCYviX9pUA__" />
         </div>
@@ -18,10 +18,10 @@ const Blog = ({ params }: IProps) => {
         <div className="space-y-10 flex flex-col justify-center items-center pb-10">
           <SectionHeading
             title="FC25 PREPARES FOR OCTOBER 2025 RELEASE WITH ENHANCED REALISM"
-            className="w-1/2 mx-auto text-center"
+            className="w-full md:w-1/2 mx-auto text-center text-[2.5rem] leading-10 md:leading-normal"
           />
 
-          <div className="flex gap-x-20">
+          <div className="flex flex-wrap gap-x-20 gap-y-4">
             <div className="flex gap-x-2">
               <CalendarDays className="text-gray-400" />
               <p>October 21, 2025</p>

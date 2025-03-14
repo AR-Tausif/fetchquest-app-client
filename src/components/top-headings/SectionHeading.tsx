@@ -2,7 +2,7 @@ import {  Bebas_Neue } from "next/font/google";
 
 export const bebasFont = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400",],
 });
 
 export const SectionHeading = ({

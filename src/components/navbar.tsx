@@ -6,9 +6,9 @@ import { useState } from "react";
 
 import { Container } from "@/components/container";
 import { NavDropdown } from "@/components/dropdown";
+import { bebasFont } from "./top-headings/SectionHeading";
 
 const Logo = "/images/website-logo.svg";
-
 export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,8 +21,9 @@ export const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  
   return (
-    <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 border relative">
+    <nav className={`*:bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 border relative ${bebasFont.className} font-thin text-2xl`}>
       <Container>
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-3xl py-2">
           <div className="flex items-center gap-x-3">
@@ -63,7 +64,7 @@ export const Navbar = () => {
 
           {/* Desktop Right Menu */}
           <ul className="hidden md:flex gap-6 font-bold uppercase">
-            <Link href="customer-support">
+            <Link href="/customer-support">
               <li className="flex gap-x-2">
                 <Headset className="primary-icon" />
                 <p>Customer Support</p>
@@ -98,7 +99,7 @@ export const Navbar = () => {
                 <Link href="/blogs"><p>News</p></Link>
               </li>
               <div className="border-t pt-4">
-                <Link href="customer-support">
+                <Link href="/customer-support">
                   <li className="flex gap-x-2 hover:text-[#da5da3] transition-all py-2">
                     <Headset className="primary-icon" />
                     <p>Customer Support</p>

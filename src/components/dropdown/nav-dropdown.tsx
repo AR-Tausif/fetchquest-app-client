@@ -18,7 +18,7 @@ export const NavDropdown = ({
 
   return (
     <div
-      className={`mt-1 shadow-xs bg-[#2E2E2E] py-8 dark:bg-gray-800 dark:border-gray-600 absolute w-full overflow-hidden z-[999] ${
+      className={`mt-1 shadow-xs !bg-[#2E2E2E] py-8 dark:bg-gray-800 dark:border-gray-600 absolute w-full overflow-hidden z-[999] ${
         dropdownOpen ? "block" : "hidden"
       }`}
       onMouseLeave={onMouseLeave}
