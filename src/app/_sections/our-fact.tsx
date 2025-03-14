@@ -10,7 +10,7 @@ export const OurFact = () => {
       <h2 className="absolute bottom-0 z-50 left-[25%] text-white font-extrabold text-[20vmin] tracking-[5px] [text-stroke:1px_#fff] [-webkit-text-stroke:1px_#fff] [-webkit-text-fill-color:transparent] hidden md:block">
         Careers
       </h2>
-      <div className="text-white flex flex-col gap-y-8 py-12 px-40 items-center">
+      <div className="text-white flex flex-col gap-y-8 py-12 p-4 md:px-40 justify-center items-center border">
         <h3 className="text-md md:text-3xl uppercase underline underline-offset-8">
           Join Us
         </h3>

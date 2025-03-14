@@ -19,13 +19,13 @@ export const OurGameSection = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
   return (
-    <section className="our-games min-h-screen low-opacity-bg-image ">
+    <section id="our-game-section" className="our-games min-h-screen low-opacity-bg-image ">
       <Container>
         <div className="py-4 pt-20 flex justify-between items-center">
           <h2 className="uppercase text-white font-extrabold text-7xl our-game-text-stroke">
             our games
           </h2>
-          <div className="embla__controls">
+          <div className="embla__controls !hidden md:!flex">
             <div className="embla__buttons">
               <PrevButton
                 onClick={onPrevButtonClick}

@@ -11,10 +11,10 @@ export const CustomVerticalTab = ({
   const [gameId, setGameId] = useState(0);
   console.log({ gameId, game: gamesOverviews[gameId] });
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col md:flex-row items-center">
       <div className="border-e border-gray-200 dark:border-neutral-700 pr-8 transition-all duration-300">
         <nav
-          className="flex flex-col space-y-2"
+          className="flex md:flex-col space-y-2 items-center"
           aria-label="Tabs"
           role="tablist"
           aria-orientation="horizontal"
@@ -22,7 +22,7 @@ export const CustomVerticalTab = ({
           {gamesOverviews.map((game) => (
             <div
               key={game.id}
-              className={`sm:hidden lg:block relative inline-block rounded-r-lg ps-6 z-[999] text-white font-semibold rounded-md
+              className={`sm:hidden lg:block relative inline-block rounded-r-lg ps-2 z-[999] text-white font-semibold rounded-md
                before:content-[''] before:absolute before:inset-0 before:bg-red-700 
                before:opacity-0 before:transition-opacity hover:before:opacity-20 hover:bg-red-600 transition-all duration-300`}
               onClick={() => setGameId(game.id - 1)}
@@ -39,7 +39,7 @@ export const CustomVerticalTab = ({
         </nav>
       </div>
 
-      <div className="ms-8 w-1/2">
+      <div className="ms-8 px-2 w-full md:w-1/2">
         <div className="">
           <div className="max-w-xl px-4 space-y-6 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl transition-all duration-300">
             <p className="text-gray-50 text-4xl font-semibold sm:text-4xl uppercase">

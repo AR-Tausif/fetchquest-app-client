@@ -1,7 +1,9 @@
 .header-hero {
   background: url(https://s3-alpha-sig.figma.com/img/33be/85c2/dc10ba65704a64a8fdb747f9d728fea7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=NnLGK-wh2vBKF2tTM1k6qbks7uvhiY5rPs1dHriWbDUOAge8LHAPFzJR8Z0fc-~yHNrSvLWXbfur-NY1PlomQ5EgZvLmrkn-Zz2PVz1u6-IK0bgaBBOjP-XidXutKgQg3eqAETu5ZyKAtIIXTWdSI7u81fhduM4jWzTj8dzha~qYJ-B2Ud5c2LEc~7hQbCsQ3dwNwMuZ4W7Kv07KMxF4lAvrUUboJl3Gtzk3uZYwBuv-rmhdzwqJAtGVzZRlBiCS9a44m8ngElWeW7Gz-5vCErhSO1GRVUibW2fpqLaUicm4-IjuXItWAY8bUR01VjZEmjpLrYVXD8I1D4Y1Zsa6qQ__);
-  background-size: cover; /* Ensures the background covers the element fully */
-  background-position: center; /* Centers the background image */
+  background-size: cover;
+  /* Ensures the background covers the element fully */
+  background-position: center;
+  /* Centers the background image */
 }
 
 /* sections background image styles here */
@@ -11,6 +13,7 @@
   background-size: cover;
   background-position: center;
 }
+
 .craft-next-game-section {
   background: url(https://s3-alpha-sig.figma.com/img/75c7/251f/bb36e99a7517586bfab1e9cf3b8c7b93?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=PJSHqC-g7CZwUMG13MWVnwOJ2HTR8YBhY3UepAWP2tDL4qTGN3DvhPc2MKd0NfzU9cbJTYdAfQxkQMEXZCDbSa8gvckU0oYLZHskS8b4b~7YJN6~fRdgmOVwRmH932Qqg6EotCZC2XLjyHxdQn0a6rICuSyYXVNfIxJU6KAImv1xthp1zU1fvajBv8gYOx3Uk19QgIfq0UC3TSZJgX0dnhYidzZCAIfdr4J67tDbxJiN2e-KaZe2FPYSDyP~swxi70QKB4VlrwiBZ0TMI7t3pbFVI~xIHxeMBgELTBuJOotRB4uLOx7blAeH2XfoDJ27OmPa~a3IqjPvcN646nYVLg__);
   background-repeat: no-repeat;
@@ -24,6 +27,7 @@
   position: relative;
   isolation: isolate;
 }
+
 .low-opacity-bg-image::after {
   content: "";
   position: absolute;
@@ -37,7 +41,7 @@
   font-size: 20vmin;
   letter-spacing: 5px;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px #fff;
+  -webkit-text-stroke: 1px #fff;
 }
 
 /* OUR GAMES SECTION STYLES HERE */
@@ -86,17 +90,18 @@
     flex: 0 0 20%;
   }
 }
+
 /* USER TESTIMONIALS SECTION STYLES HERE */
 .user-testimonials .embla__container {
   display: flex;
   gap: 16px;
   touch-action: pan-y pinch-zoom;
   padding: 1rem 0;
-  
+
   @media (min-width: 640px) {
     gap: 20px;
   }
-  
+
   @media (min-width: 768px) {
     gap: 30px;
   }
@@ -106,15 +111,15 @@
   transform: translate3d(0, 0, 0);
   min-width: 0;
   flex: 0 0 90%;
-  
+
   @media (min-width: 640px) {
     flex: 0 0 80%;
   }
-  
+
   @media (min-width: 768px) {
     flex: 0 0 65%;
   }
-  
+
   @media (min-width: 1024px) {
     flex: 0 0 49%;
   }
@@ -145,7 +150,7 @@
 }
 
 /* Update the text stroke for better mobile display */
-.our-game-text-stroke {
+/* .our-game-text-stroke {
   font-size: clamp(2.5rem, 15vmin, 20vmin);
   letter-spacing: 3px;
   @media (min-width: 768px) {
@@ -154,7 +159,31 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px #fff;
   @media (min-width: 768px) {
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1px #fff;
   }
+} */
+
+
+/* OUR GAMES SECTION STYLES HERE */
+.nav-dropdown .embla__container {
+  display: flex;
+  gap: 16px;
+  md: gap-32px;
+  lg: gap-72px;
+  touch-action: pan-y pinch-zoom;
+  padding: 1rem 0;
 }
 
+.nav-dropdown .embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 25%;
+  min-width: 0;
+
+  @media (min-width: 768px) {
+    flex: 0 0 45%;
+  }
+
+  @media (min-width: 1024px) {
+    flex: 0 0 25%;
+  }
+}
