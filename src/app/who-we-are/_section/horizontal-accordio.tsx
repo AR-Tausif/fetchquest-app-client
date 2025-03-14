@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { GameItemBox } from "@/components/boxes";
+import Image from "next/image";
+import { HorizontalAccFirstItemCard, HorizontalAccLastItemContent } from "@/components/cards";
 
 export const HorizontalAccordion = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
@@ -12,7 +14,7 @@ export const HorizontalAccordion = () => {
     {
       bgUrl:
         "https://s3-alpha-sig.figma.com/img/e7db/889c/86e62d7bd87d8784e1f029798cec630c?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qCbRJaZxeXgqdkBZQN4s2Fbh-HOpXSvjGTjddBuKe1A5ilIGAwnVsgt7aWQkrpj0Y8cvp82O76WpIzOhIDx2ODwy7fcC1O-yJuZyDe1LvpkOT7t1paYdKsMWTpM0iz3yX9LSkj6d0BTRFqdnJWRGNkfq47BCwVEuVh-fuwjUCTeuUyFuGku1tLF6xspa5jWkpEmH3~TTkyfwRmb7YVFTzLXKCwGodUFduK0eQid~8SpwEVToVl4hiLyAtjiWjTjKi~AP~R8h8wL76z29y-O1kv~diKmnIrkPPdofCkfmregXqJ1AckXiJemqmhDRjuHERP0jzdgEsjXieG~xM8Gy7g__",
-      content: "",
+      content:"",
     },
     {
       bgUrl:
@@ -29,7 +31,7 @@ export const HorizontalAccordion = () => {
     {
       bgUrl:
         "https://s3-alpha-sig.figma.com/img/19f0/15f2/2fcfebdf54403d18f95ff2723def90b8?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kSE1kvtIjpkU9LMotKM~vmuagFyDvOm8ubE-OP35KxfcNr~sERR1OoDJlJo4n~iTWjK4lki5Jd7VQtEJz5Iw8MJ03Rr6ODnVkLr8lsrfLRDN3AGzKQ97-ms9MGM-ZVLn~3EDmaOqXuWHkVgUcmx~hIgaNcsZELh5-JtBJQt3Bdyz5fPIDWjSHh5Q8FkO9PD~uu3JZRw5dXfc3zSzlaMRBv3xh5NZwGBOmmiXTranNFkvrMC3F2X8ONiaVykdj4Q2EJUqBkOkBIxfth1WBmhnsz4g15jhKWO1bzWlS~d8KUAxs6M4vRJvcsp4MZ4ymuCdPjFaxTJLJ5d4wRegn5u08Q__",
-      content: "",
+      content: <HorizontalAccLastItemContent />,
     },
   ];
 
@@ -59,7 +61,11 @@ export const HorizontalAccordion = () => {
             />
             {/* Content */}
             <div className="relative z-10 h-full flex items-center justify-center">
-              {item.content}
+              {
+                index === 0 ? (
+                  <HorizontalAccFirstItemCard activeIndex={activeIndex} index={index} />
+                ) : item.content
+              }
             </div>
           </li>
         ))}

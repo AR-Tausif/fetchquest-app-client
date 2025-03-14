@@ -15,7 +15,7 @@ export const OurFact = () => {
           Join Us
         </h3>
 
-        <LogoAndSocialIcons />
+        <LogoAndSocialIcons logoClassName="w-[100px] h-[100px] md:w-[120px] md:h-[130px]"/>
 
         {/* <button
           className="px-8 py-3 rounded-md border border-pink-300 text-white font-medium roboto-fonts"
