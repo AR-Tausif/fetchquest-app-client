@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { GameItemBox } from "@/components/boxes";
-import Image from "next/image";
-import { HorizontalAccFirstItemCard, HorizontalAccLastItemContent } from "@/components/cards";
+import {
+  HorizontalAccFirstItemCard,
+  HorizontalAccLastItemContent,
+} from "@/components/cards";
+import { AppButton } from "@/components/buttons/app-button";
 
 export const HorizontalAccordion = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
@@ -14,17 +17,39 @@ export const HorizontalAccordion = () => {
     {
       bgUrl:
         "https://s3-alpha-sig.figma.com/img/e7db/889c/86e62d7bd87d8784e1f029798cec630c?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=qCbRJaZxeXgqdkBZQN4s2Fbh-HOpXSvjGTjddBuKe1A5ilIGAwnVsgt7aWQkrpj0Y8cvp82O76WpIzOhIDx2ODwy7fcC1O-yJuZyDe1LvpkOT7t1paYdKsMWTpM0iz3yX9LSkj6d0BTRFqdnJWRGNkfq47BCwVEuVh-fuwjUCTeuUyFuGku1tLF6xspa5jWkpEmH3~TTkyfwRmb7YVFTzLXKCwGodUFduK0eQid~8SpwEVToVl4hiLyAtjiWjTjKi~AP~R8h8wL76z29y-O1kv~diKmnIrkPPdofCkfmregXqJ1AckXiJemqmhDRjuHERP0jzdgEsjXieG~xM8Gy7g__",
-      content:"",
+      content: "",
     },
     {
       bgUrl:
         "https://s3-alpha-sig.figma.com/img/41dd/5594/517be32273d495af450b6c5040436a82?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cwCVTVg4DsBp0qFVNWuU42~dkkU1cyZfqvRV~g9RiOt1f8qMHmz-Bz34pd3NKpEw5QKxLN1hjyAankersPp-qrHMsgMzQ3fzRy-~i-8dKXQAposhCH80oFueHctXd3ltZfYtUEFmCkxu~6X5JFdaMz~F5GBIdIcAT1HT8IaplweOwxrJp6~-ZETw52GRjz0rg~HmBj785DWvtnHZ2u3UliuM84TIt2ZwfbzBVMyzjyUF-ZPj24NJfoML91Ud7XJfCi3lUw6ABkOkJD75C3xW2cW4jFhMpNps-EeDIxzpw2dYf8pwvk7oDDhXhfK564EhGxo2fikbNN3KN8zJ~Eu-wQ__",
       content: (
-        <div className="flex justify-center items-center px-4">
-          <GameItemBox />
-          <GameItemBox />
-          <GameItemBox />
-          <GameItemBox />
+        <div className="">
+          <div className="space-x-4 my-4">
+          <AppButton
+            variant="outline"
+            className="p-4 hover:bg-[#DA5DA3] text-white transition-all duration-300 ease-in-out text-sm px-3"
+          >
+            Gamepads
+          </AppButton>
+          <AppButton
+            variant="outline"
+            className="p-4 hover:bg-[#DA5DA3] text-white transition-all duration-300 ease-in-out text-sm"
+          >
+            Gamepads
+          </AppButton>
+          <AppButton
+            variant="outline"
+            className="p-4 hover:bg-[#DA5DA3] text-white transition-all duration-300 ease-in-out text-sm"
+          >
+            Gamepads
+          </AppButton>
+          </div>
+          <div className="flex justify-center items-center px-4">
+            <GameItemBox />
+            <GameItemBox />
+            <GameItemBox />
+            <GameItemBox />
+          </div>
         </div>
       ),
     },
@@ -61,11 +86,14 @@ export const HorizontalAccordion = () => {
             />
             {/* Content */}
             <div className="relative z-10 h-full flex items-center justify-center">
-              {
-                index === 0 ? (
-                  <HorizontalAccFirstItemCard activeIndex={activeIndex} index={index} />
-                ) : item.content
-              }
+              {index === 0 ? (
+                <HorizontalAccFirstItemCard
+                  activeIndex={activeIndex}
+                  index={index}
+                />
+              ) : (
+                item.content
+              )}
             </div>
           </li>
         ))}

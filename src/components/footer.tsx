@@ -63,14 +63,17 @@ export const Footer = () => {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap md:text-left text-center">
           {footerLinks.map((footerItem) => (
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div
+              key={footerItem.title}
+              className="lg:w-1/4 md:w-1/2 w-full px-4"
+            >
               <h2 className="text-white font-semibold tracking-widest text-sm mb-3">
                 {footerItem.title ? footerItem.title : "Take a refresh"}
               </h2>
 
               <nav className="list-none mb-10">
                 {footerItem.links.map((item) => (
-                  <li>
+                  <li key={item.label}>
                     <Link
                       href={item.href}
                       className="text-gray-300 hover:text-gray-50"
