@@ -23,6 +23,7 @@ import Image from "next/image"
 import { Sheet, SheetTrigger } from "../ui/sheet"
 import { Button } from "../ui/button"
 import { SheetDemo } from "./mobile-nav-sheet"
+import { JoinUs } from "../join-us"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -149,13 +150,7 @@ export function NavigationMenuDemo() {
                 Styles for headings, paragraphs, lists...etc
               </ListItem>
             </ul> */}
-                        <div className="flex justify-center py-2">
-                            {/* <h2 className="text-primary font-extrabold text-[6vmin] tracking-[5px] [text-stroke:1px_#fff] [-webkit-text-stroke:1px_#C2589E] [-webkit-text-fill-color:transparent] bg-white rounded-lg p-4 px-8">Careers</h2> */}
-
-
-                            <GradientText />
-
-                        </div>
+                        
                         <p className="text-white">Up Coming Games</p>
                         <EmblaCarousel emblaRef={emblaRef}>
                             <div className="embla__container my-4">
@@ -170,21 +165,12 @@ export function NavigationMenuDemo() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="hidden md:flex">
-                    <NavigationMenuTrigger className={`${FontSize} hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer`}>Join us</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={`${FontSize} hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer`}>Games</NavigationMenuTrigger>
                     <NavigationMenuContent className="bg-black">
-                        <ul className="grid w-[100%] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {components.map((component) => (
-                                <ListItem
-                                    key={component.title}
-                                    title={component.title}
-                                    href={component.href}
-                                >
-                                    {component.description}
-                                </ListItem>
-                            ))}
-                        </ul>
+                    <JoinUs />
                     </NavigationMenuContent>
                 </NavigationMenuItem>
+                
                 <NavigationMenuItem className="hidden md:flex">
                     <Link href="/who-we-are" legacyBehavior passHref>
                         <NavigationMenuLink className={`${FontSize} hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer`}>
