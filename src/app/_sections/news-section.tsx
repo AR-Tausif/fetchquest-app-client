@@ -10,8 +10,13 @@ import { SectionHeading } from "@/components/top-headings/SectionHeading";
 export const NewsSection = () => {
   const OPTIONS: EmblaOptionsType = {
     containScroll: false,
-    align: "start",
-    breakpoints: { "(min-width: 768px)": { align: "start", dragFree:true } },
+    align: "center", // default alignment for mobile/tablet devices
+    breakpoints: {
+      "(min-width: 768px)": {
+        // lg breakpoint in this line
+        align: "start", // alignment for desktop devices
+      },
+    },
   };
   const SLIDE_COUNT = 10;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());

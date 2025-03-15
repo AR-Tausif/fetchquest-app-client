@@ -12,7 +12,16 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 
 export const CraftOurNextGames = () => {
-  const OPTIONS: EmblaOptionsType = { containScroll: false, align: "start" };
+  const OPTIONS: EmblaOptionsType = {
+    containScroll: false,
+    align: "start", // default alignment for mobile/tablet devices
+    breakpoints: {
+      "(min-width: 768px)": {
+        // lg breakpoint in this line
+        align: "start", // alignment for desktop devices
+      },
+    },
+  };
   const SLIDE_COUNT = 5;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
@@ -49,7 +58,7 @@ export const CraftOurNextGames = () => {
         </div>
         {/* <EmblaCarousel slides={SLIDES} emblaRef={emblaRef} /> */}
         <EmblaCarousel emblaRef={emblaRef}>
-          <div className="embla__container -mx-4">
+          <div className="embla__container">
             {SLIDES.map((index) => (
               <div className="embla__slide" key={index}>
                 <OurNextGameCard />

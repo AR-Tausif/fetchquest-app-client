@@ -11,7 +11,7 @@ export const NewsBlogCard = () => {
         <p className="text-white">13 March 2025</p>
         <SectionHeading
           title="April 21, 2025 The Next Year of Magic from Fetch Quest Presents"
-          className="text-[40px] text-white leading-10"
+          className="text-[52px] md:!text-[3vw] text-white leading-10 md:leading-[3rem]"
         />
       </div>
     </div>

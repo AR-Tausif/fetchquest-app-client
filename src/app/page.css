@@ -91,6 +91,7 @@
   }
 }
 
+
 /* USER TESTIMONIALS SECTION STYLES HERE */
 .user-testimonials .embla__container {
   display: flex;
@@ -144,6 +145,32 @@
     flex: 0 0 45%;
   }
 
+  @media (min-width: 1024px) {
+    flex: 0 0 25%;
+  }
+}
+/* OUR GAMES SECTION STYLES HERE */
+.craft-next-game-section .embla__container {
+  display: flex;
+  gap: 16px;
+  md: gap-32px;
+  lg: gap-72px;
+  touch-action: pan-y pinch-zoom;
+  padding: 1rem 0;
+}
+
+.craft-next-game-section .embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 45%;
+  min-width: 0;
+  
+  @media (max-width: 760px) {
+    padding-left: 20px;
+  }
+  @media (min-width: 768px) {
+    flex: 0 0 45%;
+  }
+  
   @media (min-width: 1024px) {
     flex: 0 0 25%;
   }

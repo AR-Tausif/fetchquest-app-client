@@ -24,6 +24,7 @@ import { Sheet, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { SheetDemo } from "./mobile-nav-sheet";
 import { JoinUs } from "../join-us";
+import { DropdownMenuDemo } from "./demo";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -76,30 +77,6 @@ export function NavigationMenuDemo() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // <ul className="hidden md:flex gap-6 uppercase font-bold">
-  //               <li
-  //                 className="flex items-center gap-x-2 hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer"
-  //                 onClick={() => setDropdownOpen(!dropdownOpen)}
-  //               >
-  //                 <p>Games</p> <ChevronDown className="primary-icon" />
-  //               </li>
-  //               <li className="flex items-center gap-x-2 hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer">
-  //                 <p>Join Us</p> <ChevronDown className="primary-icon" />
-  //               </li>
-  //               <li className="hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer active:text-[#da5da3]">
-  //                 <Link href="/who-we-are">
-  //                   <p>Who we are</p>
-  //                 </Link>
-  //               </li>
-  //               <li>
-  //                 <Link href="/blogs">
-  //                   <p className="hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer">
-  //                     News
-  //                   </p>
-  //                 </Link>
-  //               </li>
-  //             </ul>
-
   const OPTIONS: EmblaOptionsType = { containScroll: false, align: "start" };
   const SLIDE_COUNT = 5;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
@@ -124,36 +101,10 @@ export function NavigationMenuDemo() {
             Games
           </NavigationMenuTrigger>
           <NavigationMenuContent className="bg-black">
-            {/* <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                 
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul> */}
             <div className="flex justify-center my-4">
-              <h4 className="text-black text-2xl font-semibold p-2 px-8 bg-white rounded-sm">Our Games</h4>
+              <h4 className="text-black text-2xl font-semibold p-2 px-8 bg-white rounded-sm">
+                Our Games
+              </h4>
             </div>
             <p className="text-white">Up Coming Games</p>
             <EmblaCarousel emblaRef={emblaRef}>
@@ -224,7 +175,8 @@ export function NavigationMenuDemo() {
 
       {/* Mobile Menu Button */}
 
-      <SheetDemo />
+      {/* <SheetDemo /> */}
+      <DropdownMenuDemo />
     </NavigationMenu>
   );
 }

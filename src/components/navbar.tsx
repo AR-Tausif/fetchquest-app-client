@@ -25,8 +25,7 @@ export const Navbar: FC<NavbarProps> = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-  }
-
+  };
 
   return (
     <nav
@@ -34,7 +33,6 @@ export const Navbar: FC<NavbarProps> = () => {
     >
       <Container>
         <NavigationMenuDemo />
-
       </Container>
       {/* <NavDropdown dropdownOpen={dropdownOpen} onMouseLeave={onMouseLeave} /> */}
     </nav>

@@ -20,7 +20,7 @@ export const AboutUs = () => {
         <div className="w-full md:w-1/2 space-y-6">
           <div className="flex items-center justify-center gap-4">
             <div className="h-0.5 w-24 bg-pink-500"></div>
-            <h2 className="text-3xl font-bold uppercase tracking-wider text-gray-900">
+            <h2 className="text-3xl font-bold uppercase tracking-wider text-gray-900 text-center">
               About Us
             </h2>
             <div className="h-0.5 w-24 bg-pink-500"></div>
