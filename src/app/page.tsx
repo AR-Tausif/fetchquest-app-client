@@ -22,7 +22,7 @@ export default function HomePage() {
   return (
     <main>
       <Head>
-        <title>Hi sampodnatskjdflksdjflkjsdfkl;jsdkl;fjsdkl;fjsdkla;fj</title>
+        <title>Fetch Quest</title>
       </Head>
       <section className="header-hero w-screen min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat">
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-32 pt-20 md:pt-40 px-4 md:px-0">
