@@ -9,9 +9,6 @@ import { Container } from "@/components/container";
 import { BlogHeroSection } from "./_sections/hero-section";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { NewsSearchInput, NewsSelectInput } from "@/components/forms";
-import { ArrowRight } from "lucide-react";
-import { GredientPragraphLittleBox } from "@/components/boxes";
-import Link from "next/link";
 
 const BlogPage = () => {
   const handleOnblur = (e: InputEvent) => {
