@@ -189,7 +189,7 @@ export function NavigationMenuDemo() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="px-4 hidden md:flex">
-          <Link href="/who-we-are" legacyBehavior passHref>
+          <Link href="/blogs" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${FontSize} hover:text-[#da5da3] transition-all ease-in-out duration-300 cursor-pointer`}
             >
