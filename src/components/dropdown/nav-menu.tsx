@@ -102,9 +102,10 @@ export function NavigationMenuDemo() {
           </NavigationMenuTrigger>
           <NavigationMenuContent className="bg-black">
             <div className="flex justify-center my-4">
-              <h4 className="text-black text-2xl font-semibold p-2 px-8 bg-white rounded-sm">
+              {/* <h4 className="text-black text-2xl font-semibold p-2 px-8 bg-white rounded-sm">
                 Our Games
-              </h4>
+              </h4> */}
+              <img src="/images/our-games-dropdown.png" alt="our games dropdown conent image" className="w-[25%]" />
             </div>
             <p className="text-white">Up Coming Games</p>
             <EmblaCarousel emblaRef={emblaRef}>
