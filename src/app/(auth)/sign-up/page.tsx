@@ -1,11 +1,10 @@
 import { AppButton } from "@/components/buttons/app-button";
-import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import Link from "next/link";
 
 const SignUp = () => {
   return (
-    <section className="w-1/2 bg-gray-50 dark:bg-gray-900 py-32">
+    <section className="w-full md:w-1/2 bg-gray-50 dark:bg-gray-900 py-32">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <SectionHeading
           title="Create an account"
