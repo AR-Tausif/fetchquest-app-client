@@ -59,7 +59,10 @@ export const Footer = () => {
     },
   ];
   return (
-    <footer id="footer-section" className="robot-fonts bg-gradient-to-t to-[#53083A] from-[#2D0844] text-white">
+    <footer
+      id="footer-section"
+      className="robot-fonts bg-gradient-to-t to-[#53083A] from-[#2D0844] text-white"
+    >
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap md:text-left text-center">
           {footerLinks.map((footerItem) => (
@@ -94,11 +97,15 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-center text-sm">
-        <p>
-          © 1993-2025 Wizards of the Coast LLC, a subsidiary of Hasbro, Inc. All
-          Rights Reserved.
-        </p>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "20px",
+          color: "#fff",
+        }}
+      >
+        <p>Explore the world of gaming with Fetch Quest</p>
+        <p>© 2025 Fetch Quest. All rights reserved.</p>
       </div>
     </footer>
   );
