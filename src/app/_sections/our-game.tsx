@@ -9,6 +9,7 @@ import {
   usePrevNextButtons,
 } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
 import { Container } from "@/components/container";
+import Image from "next/image";
 
 export const OurGameSection = () => {
   const OPTIONS: EmblaOptionsType = {
@@ -40,10 +41,12 @@ export const OurGameSection = () => {
           {/* <h2 className="uppercase text-white font-extrabold text-7xl our-game-text-stroke">
             our games
           </h2> */}
-          <img
+          <Image
             src="/images/Our-Games.png"
             alt="stroke image"
             className="w-[70vw] md:w-[60vw] lg:w-[40vw]"
+            width={1000}
+            height={1000}
           />
           <div className="embla__controls !hidden md:!flex">
             <div className="embla__buttons">
