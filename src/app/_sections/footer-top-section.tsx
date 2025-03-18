@@ -3,15 +3,15 @@ import Image from "next/image";
 
 export const FooterTopSection = () => {
   return (
-    <section className="text-gray-600 body-font bg-[#062047] mt-2 ">
+    <section className="text-gray-600 body-font bg-gradient-to-t to-[#53083A] from-[#2D0844] mt-2 ">
       <div className="flex md:flex-row flex-col items-center">
         <div className="w-full md:w-[50%] mb-10 md:mb-0 grow">
           <Image
             className="object-cover object-center !w-full h-full"
             alt="hero"
-            src="https://s3-alpha-sig.figma.com/img/45d8/208e/9ba1dfff27b18079731ae3815c680674?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ZT08IkQKAKbkcK1S8EVzU8zV-B3JVnjctY9L0UW88TxPPRf6IoE0i4dCN2COk-2l7ncpjJwJxc-d0k99H9t4~IEo87aKs-jvq7L8FumJVzyIoX3L7~ZRJVfBFCBIRYWXoGSnvGwgCbukDqnXXRnEmqsSX-ObmiY3qthyhwPGtH0-OtNqIuT4cMOiU9MiD2U3lgQ65gTiYBtCSMbDb3PdPJbVrmgqfe0U1aKmFF7YDk3yqlRKjtkzP72IXa7cAEzr0D3RBbTSkQGBh2JlL658uWF13fqI0ZLsB3Uzw0I9TSgr~cMvk2j~Nh6dhtEdVheev8oQziy9kskrt0anh5mnlg__"
-            width={100}
-            height={100}
+            src="/images/posters/watching-video.png"
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 py-10 flex flex-col md:items-start md:text-left items-center text-center">

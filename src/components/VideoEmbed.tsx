@@ -1,4 +1,4 @@
-const dummyImg = "https://s3-alpha-sig.figma.com/img/27e8/680d/b44cfe4a4b7ce2ad61dc72a979617980?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=nD4GmL3xQt8cM1WCBGtawG8sfKYv6fZUJDx7mdE-MYti4g8FYaAWQ0bwL0qgCQtioM3gJzE7btywktowfMasreP60HkYl31oVRUp94vYQu17-XWzpcxzg5VoHkzQhkiVeFmK1GSN51mSvzOZF5pWmnuvPxxRa6lL5uCg1cESJ2L6C7lZ4ZHXmSHZE33eALIqywlA3I5TDfMUam9l8kMkzpAOOpsRSw03m7AcH1J5iGMHGWLTyG2sSsQGM24gkV1NWdUWuhq0qm7ocB4VfV3W0eT1NvNMsfZtBmagsTD1yltiXvW91HE-7GF69hzL3Tq6jI-ewEnIrRo0DjQJVy1Jhg__"
+const dummyImg = "/images/containers-bg/work-station-bg.png"
 export const VideoEmbed = ({ className, placeholderImage=dummyImg }: { className?: string; placeholderImage?:string }) => {
   const iframeSrcdoc = `
     <style>

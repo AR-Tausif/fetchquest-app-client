@@ -37,7 +37,7 @@ export const OurStudios = () => {
               {SLIDES.map((index) => (
                 <div className='embla__slide' key={index}>
                   <img
-                    src='https://s3-alpha-sig.figma.com/img/a633/0d1d/c5d715af9db17cca864eef07d92d6969?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=A~nlEnJpwHCjWHxDJzzvUYdr4hDOS635Tdq-wKRaiWljdnAgB8Q~1o1VFtF39cbRrcz5Ew6BQdjMIjtIiVq4aakTlxjOkHS8Umb1NJ4xh6jNK3094MWFcHXoGatfIQrBfmJvpQPdt0OgV2Ew8OXtdY7vndoAjd5bYyc3-Ol2hKUamGDqFFFatO8JYvaziRtO0p55YzLtSdKqmEflhLvrxy0ZHBgQ1lHq0QFC5wfusqWDNjOMVriF9cN4WC0gWn7938qsOxkxCOhK4gZYd5AZbAPE-qi3QQMU~wafyt0ENuRQQVLa1gq0ZImH~EJde2lkSf6g3WP~GJWm0zdiibYEXg__'
+                    src='/images/pages/who-we-are/section-two/slide-img-1.png'
                     alt='Our studio image'
                     className='w-full rounded-md'
                   />

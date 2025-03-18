@@ -19,7 +19,7 @@ export const FeedbackCard = () => {
           <a className="inline-flex items-center pt-4">
             <Image
               alt="blog"
-              src="https://dummyimage.com/102x102"
+              src="/images/dummy.png"
               className="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center"
               width={200}
               height={200}

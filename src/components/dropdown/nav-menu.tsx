@@ -90,7 +90,7 @@ export function NavigationMenuDemo() {
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <Image src={Logo} alt="Logo" width={50} height={50} />
+            <Image src={Logo} alt="Logo" width={90} height={90} />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
           </Link>
         </div>
