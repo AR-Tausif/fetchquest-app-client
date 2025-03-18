@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export const CommunityBlogSection = () => {
   const blogVideoImg = [
-    "https://s3-alpha-sig.figma.com/img/f388/2c9d/1d84f3818c83088fae3e9923c977707a?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=VMrer9VmvdQ3KUcFx7fLkngSHBk5O~nfR8AlOZfSgBIsffjzRvoor8Zr4NqskY0kM2tKrsUBgmH1xq1GOAhRQKvncwGBwCwmIJCgZ9lXgpZZfViCYKgiOOEdQRTnDhl8sfiy7oawYvfWqtEtc~XlHXJQKFJBH1ivJ4kRUwBcxBHnUbCKOKhyZrFX8UoEQY03qX1jD3xfn9WinVLr-4BOl4qLiwQpztQJiYX20vVAZqS6Ge2bPj~BNpMc90l0RSgt01GO5F8w6N2HBwhOVlUotWMOac3Ui5YXoIzr9YpqClT9sj-9hxjv27P8yl~jTxSHW2RDakfg4uHAYjlj~PgNrA__",
-    "https://s3-alpha-sig.figma.com/img/e573/d2bb/0bf3f109b77d638e927263b1422cec58?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=pqocdLO3B6j9I6ONNHjURxgShKOfO-5MGVbm-4EZuDjKeki-zA30nODFp3yelo3hNq0IcMlcAsbyOR3HbE1Xq27Zj7XPdiIpDBlKtuxxl9AdUE0uy~6dM2yomioqK-KtarbEK4F9RUI6G8xWKltdPQ8EJDyR0k5Tg6graEceThPGxDavlUokcsQZSkes0h7mg1dqA57RvWUZorNTsC0zc1cluR4E2uEdCRc8ijUqNl7760KLJ946OLLuAbJhwIY4JkhQd6Zw0B0wiYZN5JaVrbU4F3~vUP7KTVgfWE~yII~cTmVXJA7quTkiQA-8x0eeH15q8PI8W9h2IychSwX8wQ__",
+    "/images/blog-photos/blog-video-bg-1.png",
+    "/images/blog-photos/blog-video-bg-2.png",
   ];
 
   return (

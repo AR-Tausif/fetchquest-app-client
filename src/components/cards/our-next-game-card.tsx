@@ -1,7 +1,7 @@
 export const OurNextGameCard = () => {
   return (
     <div
-      className="w-full h-[428px] bg-center flex flex-col justify-end bg-[url(/images/fighter-image.png)]  overflow-hidden rounded-br-3xl"
+      className="w-full h-[428px] flex flex-col justify-end bg-[url(/images/fighter-image.png)] bg-center bg-no-repeat overflow-hidden rounded-br-3xl"
     >
       <p className="w-[55%] text-white px-4 bg-gradient-to-t to-[#DA5DA3] from-[#5B428A]">
         Shadows Unleashed

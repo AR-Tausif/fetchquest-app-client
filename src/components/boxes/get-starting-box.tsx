@@ -1,7 +1,7 @@
 export const GetStartingBox = ({ className }: { className: string }) => {
   return (
     <div
-      className={`bg-[#062047] uppercase text-white px-10 py-4 space-y-4 text-center ${className}`}
+      className={`bg-gradient-to-t to-[#53083A] from-[#2D0844] uppercase text-white px-10 py-4 space-y-4 text-center ${className}`}
     >
       <h5 className="">Getting started</h5>
       <p className="font-bold text-sm">How to start playing</p>

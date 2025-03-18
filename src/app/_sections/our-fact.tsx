@@ -8,7 +8,7 @@ export const OurFact = () => {
   return (
     <section className="relative bg-gradient-to-t to-[#53083A] from-[#2D0844] flex flex-col flex-col-reverse justify-between md:flex-row">
       <h2 className="absolute bottom-8 z-50 left-[10%] lg:left-[30%] xxl:left-[10vw] text-white font-extrabold tracking-[5px] [text-stroke:1px_#fff] [-webkit-text-stroke:1px_#fff] [-webkit-text-fill-color:transparent] hidden md:block">
-        <img src="/images/en-careers.png" alt="career image" className="w-[70vw] md:w-[60vw] lg:w-[40vw]" />
+        <Image src="/images/en-careers.png" alt="career image" className="w-[70vw] md:w-[60vw] lg:w-[40vw]" width={1000} height={1000} />
       </h2>
       <div className="text-white flex flex-col gap-y-8 py-12 p-4 md:px-40 justify-center items-center">
         <h3 className="text-md md:text-3xl uppercase underline underline-offset-8">
