@@ -6,6 +6,8 @@ import { NewsCard } from "@/components/cards/news-card";
 import { EmblaCarousel } from "@/components/carousle";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
+import { usePrevNextButtons } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
+import { newsSlides } from "@/assets/game-data";
 
 export const NewsSection = () => {
   const OPTIONS: EmblaOptionsType = {
@@ -14,13 +16,19 @@ export const NewsSection = () => {
     breakpoints: {
       "(min-width: 768px)": {
         // lg breakpoint in this line
-        align: "start", // alignment for desktop devices
+        align: "center", // alignment for desktop devices
       },
     },
   };
   const SLIDE_COUNT = 10;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-  const [emblaRef] = useEmblaCarousel(OPTIONS);
+  const SLIDES = newsSlides;
+  const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
   return (
     <section className="py-10 pb-20 news-fetch-quest">
       <Container>
@@ -35,19 +43,27 @@ export const NewsSection = () => {
           </ul>
 
           <div className="flex gap-x-4">
-            <button className="border p-1 px-3 border-[#7D3C98]">
+            <button
+              className="border p-1 px-3 border-[#7D3C98]"
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+            >
               <ArrowLeft />
             </button>
-            <button className="border p-1 px-3 border-[#7D3C98]">
+            <button
+              className="border p-1 px-3 border-[#7D3C98]"
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            >
               <ArrowRight />
             </button>
           </div>
         </div>
         <EmblaCarousel emblaRef={emblaRef}>
           <div className="embla__container">
-            {SLIDES.map((index) => (
-              <div className="embla__slide" key={index}>
-                <NewsCard />
+            {SLIDES.map((slide) => (
+              <div className="embla__slide" key={slide.id}>
+                <NewsCard content={slide} />
               </div>
             ))}
           </div>

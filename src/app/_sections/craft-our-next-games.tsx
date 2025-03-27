@@ -10,8 +10,7 @@ import {
 } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
-import { GameCard } from "@/components/cards";
-import { gameSlides } from "./our-game";
+import { nextCardGameSlides } from "@/assets/game-data";
 
 export const CraftOurNextGames = () => {
   const OPTIONS: EmblaOptionsType = {
@@ -24,8 +23,8 @@ export const CraftOurNextGames = () => {
       },
     },
   };
-  const SLIDE_COUNT = 5;
-  const SLIDES = gameSlides;
+
+  const SLIDES = nextCardGameSlides;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {
     prevBtnDisabled,
@@ -63,7 +62,7 @@ export const CraftOurNextGames = () => {
           <div className="embla__container">
             {SLIDES.map((slide, index) => (
               <div className="embla__slide" key={slide.id}>
-                <OurNextGameCard />
+                <OurNextGameCard content={slide} />
               </div>
             ))}
           </div>
