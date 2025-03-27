@@ -11,7 +11,57 @@ import {
 import { Container } from "@/components/container";
 import Image from "next/image";
 import { IGameCardContent } from "@/types/home-page";
-
+export const gameSlides: IGameCardContent[] = [
+  {
+    id: 1,
+    posterImg: "/images/posters/poster-6.jpg",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "12 Feb 2024",
+    site: "Visit Site",
+  },
+  {
+    id: 2,
+    posterImg: "/images/posters/poster-7.webp",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "18 March 2024",
+    site: "Visit Site",
+  },
+  {
+    id: 3,
+    posterImg: "/images/posters/poster-8.webp",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "19 Apr 2024",
+    site: "Visit Site",
+  },
+  {
+    id: 4,
+    posterImg: "/images/posters/poster-9.jpg",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "11 Feb 2025",
+    site: "Visit Site",
+  },
+  {
+    id: 5,
+    posterImg: "/images/posters/poster-10.jpg",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "10 Sep 2026",
+    site: "Visit Site",
+  },
+  {
+    id: 6,
+    posterImg: "/images/posters/poster-11.png",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "21 Aug 2021",
+    site: "Visit Site",
+  },
+  {
+    id: 7,
+    posterImg: "/images/posters/poster-12.jpg",
+    gameName: "Introductiong check6 extraction dlc",
+    date: "15 Dec 2024",
+    site: "Visit Site",
+  },
+];
 export const OurGameSection = () => {
   const OPTIONS: EmblaOptionsType = {
     containScroll: false,
@@ -24,57 +74,7 @@ export const OurGameSection = () => {
     },
   };
   
-  const gameSlides: IGameCardContent[] = [
-    {
-      id: 1,
-      posterImg: "/images/posters/poster-6.jpg",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "12 Feb 2024",
-      site: "Visit Site",
-    },
-    {
-      id: 2,
-      posterImg: "/images/posters/poster-7.webp",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "18 March 2024",
-      site: "Visit Site",
-    },
-    {
-      id: 3,
-      posterImg: "/images/posters/poster-8.webp",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "19 Apr 2024",
-      site: "Visit Site",
-    },
-    {
-      id: 4,
-      posterImg: "/images/posters/poster-9.jpg",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "11 Feb 2025",
-      site: "Visit Site",
-    },
-    {
-      id: 5,
-      posterImg: "/images/posters/poster-10.jpg",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "10 Sep 2026",
-      site: "Visit Site",
-    },
-    {
-      id: 6,
-      posterImg: "/images/posters/poster-11.png",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "21 Aug 2021",
-      site: "Visit Site",
-    },
-    {
-      id: 7,
-      posterImg: "/images/posters/poster-12.jpg",
-      gameName: "Introductiong check6 extraction dlc",
-      date: "15 Dec 2024",
-      site: "Visit Site",
-    },
-  ];
+  
   const SLIDES = gameSlides;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {

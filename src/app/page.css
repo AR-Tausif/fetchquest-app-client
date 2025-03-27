@@ -45,23 +45,21 @@
 }
 
 /* OUR GAMES SECTION STYLES HERE */
-
+/* 
 .our-games .embla__container {
   display: flex;
   gap: 72px;
   touch-action: pan-y pinch-zoom;
-  /* margin-left: calc(var(--slide-spacing) * -1); */
 }
 
 .our-games .embla__slide {
   transform: translate3d(0, 0, 0);
   flex: 0 0 25%;
   min-width: 0;
-  /* padding-left: var(--slide-spacing); */
-}
+} */
 
 /* NEWS FETCH FROM QUEST SECTION STYLES HERE */
-.news-fetch-quest .embla__container {
+/* .news-fetch-quest .embla__container {
   display: flex;
   gap: 8px;
   touch-action: pan-y pinch-zoom;
@@ -89,10 +87,10 @@
   @media (min-width: 1280px) {
     flex: 0 0 20%;
   }
-}
+} */
 
 /* USER TESTIMONIALS SECTION STYLES HERE */
-.user-testimonials .embla__container {
+/* .user-testimonials .embla__container {
   display: flex;
   gap: 16px;
   touch-action: pan-y pinch-zoom;
@@ -123,10 +121,10 @@
   @media (min-width: 1024px) {
     flex: 0 0 49%;
   }
-}
+} */
 
 /* OUR GAMES SECTION STYLES HERE */
-.our-games .embla__container {
+.embla__container {
   display: flex;
   gap: 16px;
   md: gap-32px;
@@ -135,13 +133,13 @@
   padding: 1rem 0;
 }
 
-.our-games .embla__slide {
+.embla__slide {
   transform: translate3d(0, 0, 0);
   flex: 0 0 100%;
   min-width: 0;
 
   @media (min-width: 768px) {
-    flex: 0 0 45%;
+    flex: 0 0 95%;
   }
 
   @media (min-width: 1024px) {
@@ -149,7 +147,7 @@
   }
 }
 /* OUR GAMES SECTION STYLES HERE */
-.craft-next-game-section .embla__container {
+/* .craft-next-game-section .embla__container {
   display: flex;
   gap: 16px;
   md: gap-32px;
@@ -160,20 +158,20 @@
 
 .craft-next-game-section .embla__slide {
   transform: translate3d(0, 0, 0);
-  flex: 0 0 45%;
+  flex: 0 0 100%;
   min-width: 0;
 
   @media (max-width: 760px) {
     padding-left: 20px;
   }
   @media (min-width: 768px) {
-    flex: 0 0 45%;
+    flex: 0 0 100%;
   }
 
   @media (min-width: 1024px) {
-    flex: 0 0 25%;
+    flex: 0 0 95%;
   }
-}
+} */
 
 /* Update the text stroke for better mobile display */
 /* .our-game-text-stroke {
