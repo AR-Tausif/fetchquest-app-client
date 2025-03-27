@@ -10,6 +10,7 @@ import {
 } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
 import { Container } from "@/components/container";
 import Image from "next/image";
+import { gameSlides } from "@/assets/game-data";
 
 export const OurGameSection = () => {
   const OPTIONS: EmblaOptionsType = {
@@ -18,12 +19,12 @@ export const OurGameSection = () => {
     breakpoints: {
       "(min-width: 768px)": {
         // lg breakpoint in this line
-        align: "start", // alignment for desktop devices
+        align: "center", // alignment for desktop devices
       },
     },
   };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
+  const SLIDES = gameSlides;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {
     prevBtnDisabled,
@@ -64,9 +65,9 @@ export const OurGameSection = () => {
         {/* <EmblaCarousel slides={SLIDES} emblaRef={emblaRef} /> */}
         <EmblaCarousel emblaRef={emblaRef}>
           <div className="embla__container">
-            {SLIDES.map((index) => (
-              <div className="embla__slide" key={index}>
-                <GameCard />
+            {SLIDES.map((slide, index) => (
+              <div className="embla__slide" key={slide.id}>
+                <GameCard content={slide} />
               </div>
             ))}
           </div>

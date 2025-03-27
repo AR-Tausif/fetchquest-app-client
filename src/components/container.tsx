@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export const Container = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="max-w-[1536px] mx-auto">
+    <div className="max-w-[100vw] md:max-w-[1536px] mx-auto">
       {children}
     </div>
   );

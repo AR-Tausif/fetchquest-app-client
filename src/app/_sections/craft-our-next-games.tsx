@@ -10,20 +10,21 @@ import {
 } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
+import { nextCardGameSlides } from "@/assets/game-data";
 
 export const CraftOurNextGames = () => {
   const OPTIONS: EmblaOptionsType = {
     containScroll: false,
-    align: "start", // default alignment for mobile/tablet devices
+    align: "center", // default alignment for mobile/tablet devices
     breakpoints: {
       "(min-width: 768px)": {
         // lg breakpoint in this line
-        align: "start", // alignment for desktop devices
+        align: "center", // alignment for desktop devices
       },
     },
   };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
+  const SLIDES = nextCardGameSlides;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {
     prevBtnDisabled,
@@ -56,15 +57,16 @@ export const CraftOurNextGames = () => {
             </div>
           </div>
         </div>
-        {/* <EmblaCarousel slides={SLIDES} emblaRef={emblaRef} /> */}
+
         <EmblaCarousel emblaRef={emblaRef}>
           <div className="embla__container">
-            {SLIDES.map((index) => (
-              <div className="embla__slide" key={index}>
-                <OurNextGameCard />
+            {SLIDES.map((slide, index) => (
+              <div className="embla__slide" key={slide.id}>
+                <OurNextGameCard content={slide} />
               </div>
             ))}
           </div>
+          {/* TODO: need to clean this code and rebase previous state ui */}
         </EmblaCarousel>
       </Container>
     </section>
