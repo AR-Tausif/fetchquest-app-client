@@ -1,8 +1,10 @@
-# School Management Fees System - Frontend
+# Game Showcase Website ( FETCH QUEST ) - Frontend
 
 This repository contains the frontend part of the School Management Fees System, a web application designed for managing school fees. The front-end is built using Next.js, TailwindCSS, Shadcnui, React-PDF, Redux, and React Query.
 
-![educa-website-three vercel app_dashboard](https://github.com/user-attachments/assets/fa568bbc-8af3-4f75-bcf8-977e5b318726)
+![image](https://github.com/user-attachments/assets/e761febd-f118-4945-ba41-a6935368298b)
+
+![image](https://github.com/user-attachments/assets/cd12a400-f4b7-40df-96cf-a92a92592f09)
 
 ## Login Credentials
 
