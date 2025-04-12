@@ -1,9 +1,15 @@
+import Image from "next/image";
+
 export const HolderItemImage = () => {
+  const img = "https://s3-alpha-sig.figma.com/img/f612/3fb8/c07b2c55ffba68ca961582f1a5976dd9?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=all9jKg2k5a58TmJ5rpDM8utj6OJdl44pI-qHLb4enL7eFCja7dRMZS7cex~YjfQg6Pn2vlFHfEjj1FRCnP~935CrZRkrXNbXZ53L8pQM-GH-0xIZk8J1Ou5LhSDH4fzq0QIlF6WWLgRIQG8tS9LbzLxljBuSr6fzux679~bhwA~uroXsOQb3Cqt9Y-iteQMdPPL3RTbkHFH0PKAPRitgW3jcz-nJtEFawAL8QLx9LfJ~hfBwAeUt33qiWBFZuefXiPlj79qbpKwDFfZYpzzCpKfrXIlJlqM8IXtBM7niqV1NIlQpknOZ3P3ZbNfgPRomHQvMNoP8XcROpTHQU168w__"
   return (
-    <div className="w-[130px] h-[160px] border border-[#DA5DA3] p-4 rounded-md">
-      <img
-        src="https://s3-alpha-sig.figma.com/img/f612/3fb8/c07b2c55ffba68ca961582f1a5976dd9?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=LaNvBsyT9JsCFtytl~zC6mwMkGf-S2znmtd8~inH8jL-wE8~a74PsyeCEwMswD45e8gUF7nV5TxEGtG37BMC5wU86Ia8CKDRmbN8I9NGwm2gNholbBemo6kHAChDVMBJ-kqyGUBkIn0f027zo8q-p8mpwAopi7j1zdMc8L~jr2h8mXb7YX~29lWd4HqS5X6Ve8Cqte5r90hp~UQmde9kq50aP1UZAQ2P1OpRZik8bDqNcqjtTXjItVmiosH-k7YRiIp14J0adpZcIzLwFA0QJ6etoWdsP5VdMUpG7FrrVwvteG5-P1~w91W60H3mXbuuyn8X~lvCW39FhEJ7-JqVIg__"
-        className="w-full h-full"
+    <div className="w-[130px] h-[160px] border border-[#DA5DA3] p-1 rounded-md">
+      <Image
+        src={img}
+        className="w-full h-full object-cover"
+        width={1000}
+        height={1000}
+        alt="placeholder image for product"
       />
     </div>
   );
