@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export default function AuthLayout ({ children }: { children: ReactNode }) {
   return (
-    <div className="roboto-fonts flex justify-between relative">
+    <div className="roboto-fonts flex relative">
       <div className="hidden md:flex w-1/2 rounded-md rounded-r-[2rem] shadow-lg bg-no-repeat bg-cover bg-center bg-[url(/images/blog-photos/giant-monkey.png)]">
         <div className="">
           <SectionHeading
