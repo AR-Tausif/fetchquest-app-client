@@ -5,6 +5,7 @@ import {
   IVerifyOTP,
 } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
+import { store } from "../store";
 
 const authApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -23,11 +24,17 @@ const authApi = fetchquestBaseApi.injectEndpoints({
       }),
     }),
     verifyOtp: builder.mutation<IAuthResponse, IVerifyOTP>({
-      query: (otp: IVerifyOTP) => ({
-        url: "/auth/verify-otp",
-        method: "POST",
-        body: otp,
-      }),
+      query: (otp: IVerifyOTP) => {
+        const token = store.getState().auth.token;
+        return {
+          url: "/auth/verify-otp",
+          method: "POST",
+          body: otp,
+          headers: {
+            token: token ? token : "",
+          },
+        };
+      },
     }),
   }),
 });

@@ -77,23 +77,20 @@ export default function RegisterForm() {
       };
 
       const response = await registerMutation(credentials).unwrap();
-      const { accessToken } = response.data;
-      const user = decodeToken(accessToken);
+      const { otpToken } = response.data;
+      const user = decodeToken(otpToken.token);
 
       // Store user data in Redux store
-      dispatch(setUser({ user, token: accessToken }));
+      dispatch(setUser({ user, token: otpToken.token }));
 
       // If remember me is checked, could store token in localStorage here
 
-      toast.success(response.message || "Successfully logged in");
-      router.push("/");
+      toast.success(response.message || "Check your email for OTP");
+      router.push(`/verify-otp/${response?.data?.otpToken?.token}`);
     } catch (error: any) {
       // Handle different error types
-      if (error.message) {
-        toast.error(error.message);
-      } else {
-        toast.error("Ragistration failed. Please try again later");
-      }
+      console.log(error)
+      toast.error(error.data?.message || "Something went wrong");
     }
   };
 
