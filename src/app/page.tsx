@@ -11,6 +11,7 @@ import { OurFact } from '@/app/_sections/our-fact';
 import { UserFeedback } from '@/app/_sections/user-feedback';
 import { CommunityBlogSection } from '@/app/_sections/community-blog-section';
 import { FooterTopSection } from '@/app/_sections/footer-top-section';
+import { useSelector } from 'react-redux';
 
 
 
@@ -19,6 +20,8 @@ import { FooterTopSection } from '@/app/_sections/footer-top-section';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const token = useSelector((state: any) => state.auth.token);
+  console.log({tokenHome: token})
   return (
     <main>
       <Head>

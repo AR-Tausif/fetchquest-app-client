@@ -16,6 +16,7 @@ import { decodeToken } from "@/utils/decode-token";
 import { useAppDispatch } from "@/redux/hooks";
 import { setUser } from "@/redux/features/auth.slice";
 import { FormField } from "@/components/forms";
+import Cookies from "js-cookie";
 
 /**
  * Validation schema for login form
@@ -73,13 +74,12 @@ export default function LoginForm() {
       const { accessToken } = response.data;
       const user = decodeToken(accessToken);
 
-      // Store user data in Redux store
+      // Store user data in Redux store (which will also set the cookie)
       dispatch(setUser({ user, token: accessToken }));
-
-      // If remember me is checked, could store token in localStorage here
+      
 
       toast.success(response.message || "Successfully logged in");
-      router.push("/");
+      router.push("/"); // Will be handled by middleware if needed
     } catch (error: any) {
       // Handle different error types
       if (error.status === 401) {
@@ -91,6 +91,8 @@ export default function LoginForm() {
       }
     }
   };
+
+  
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
