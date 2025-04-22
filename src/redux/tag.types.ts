@@ -5,7 +5,7 @@ export const tagTypes = {
   wishlist: "Wishlist",
   category: "Category",
   review: "Review",
-  post: "Post",
+  blog: "Blog",
   product: "Product",
   privacy: "Privacy",
   terms: "Terms",
@@ -17,5 +17,5 @@ export const tagTypesList = [
   tagTypes.review,
   tagTypes.privacy,
   tagTypes.terms,
-  tagTypes.post,
+  tagTypes.blog,
 ];

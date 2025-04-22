@@ -1,10 +1,10 @@
-import { IProfileResponse } from "@/types/redux/auth";
+import { IMyProfile, IResponse } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
 import { tagTypes } from "../tag.types";
 
-const authApi = fetchquestBaseApi.injectEndpoints({
+const usersApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getProfile: builder.query<IProfileResponse, undefined>({
+    getProfile: builder.query<IResponse<IMyProfile>, undefined>({
       query: () => ({
         url: "/users/my-profile",
         method: "GET",
@@ -12,7 +12,7 @@ const authApi = fetchquestBaseApi.injectEndpoints({
       providesTags: [tagTypes.user],
     }),
 
-    editProfile: builder.mutation<IProfileResponse, FormData>({
+    editProfile: builder.mutation<IResponse<IMyProfile>, FormData>({
       query: (editFormBody) => ({
         url: "/users/update-my-profile",
         method: "PATCH",
@@ -23,4 +23,4 @@ const authApi = fetchquestBaseApi.injectEndpoints({
   }),
 });
 
-export const { useGetProfileQuery, useEditProfileMutation } = authApi;
+export const { useGetProfileQuery, useEditProfileMutation } = usersApi;

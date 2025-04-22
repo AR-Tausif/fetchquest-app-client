@@ -236,13 +236,9 @@ const UserAccountLink = () => {
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
-                  <Link href="/profile">
-                <DropdownMenuItem>
-                    Profile
-                  {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                <DropdownMenuItem asChild>
+                  <Link href="/profile">Profile</Link>
                 </DropdownMenuItem>
-                  </Link>
-
                 {/* <DropdownMenuItem>
                   Settings
                   <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>

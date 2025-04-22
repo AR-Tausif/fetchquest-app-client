@@ -44,13 +44,13 @@ export interface IUser {
   verification: IVerification;
 }
 
-interface data {
+export interface authResponseData {
   user: IUser;
   accessToken: string;
   refreshToken: string;
   otpToken: IOtpToken;
 }
-interface IMyProfile {
+export interface IMyProfile {
   _id: string;
   email: string;
   contact: string;
@@ -64,13 +64,8 @@ interface IMyProfile {
   updatedAt: string;
 }
 
-export interface IAuthResponse {
+export interface IResponse<T> {
   success: boolean;
   message: string;
-  data: data;
-}
-export interface IProfileResponse {
-  success: boolean;
-  message: string;
-  data: IMyProfile;
+  data: T;
 }
