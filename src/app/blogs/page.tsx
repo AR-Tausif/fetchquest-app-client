@@ -9,8 +9,11 @@ import { Container } from "@/components/container";
 import { BlogHeroSection } from "./_sections/hero-section";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { NewsSearchInput, NewsSelectInput } from "@/components/forms";
+import { useGetAllBlogs } from "@/hooks/rtk-queries/useGetAllBlogs";
 
 const BlogPage = () => {
+  const { blogs } = useGetAllBlogs();
+  console.log(blogs);
   const handleOnblur = (e: InputEvent) => {
     console.log("blur", e);
   };
@@ -41,11 +44,14 @@ const BlogPage = () => {
 
           {/* all blog posts */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-            <BlogNewsCard />
+            {blogs?.map((blog) => (
+              <BlogNewsCard key={blog._id} blog={blog} />
+            ))}
+            {/* <BlogNewsCard />
 
             <BlogNewsCard />
 
-            <BlogNewsCard />
+            <BlogNewsCard /> */}
           </div>
           {/* pagination */}
           <PaginationCard />

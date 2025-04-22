@@ -21,5 +21,9 @@ export const useGetAllBlogs = () => {
   }));
 
   if (!blogsSlideData) return { blogSlide: [], isBlogPending: isLoading };
-  return { blogSlide: blogsSlideData, isBlogPending: isLoading };
+  return {
+    blogSlide: blogsSlideData,
+    isBlogPending: isLoading,
+    blogs: data?.data?.data || [],
+  };
 };

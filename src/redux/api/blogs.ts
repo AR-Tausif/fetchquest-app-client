@@ -12,7 +12,14 @@ const blogsApi = fetchquestBaseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.blog],
     }),
+    getSingleBlog: builder.query<IResponse<IBlogResponse>, { blog: string }>({
+      query: (blogInfo) => ({
+        url: `/blogs${blogInfo.blog}`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.blog],
+    }),
   }),
 });
 
-export const { useGetBlogsQuery } = blogsApi;
+export const { useGetBlogsQuery, useGetSingleBlogQuery } = blogsApi;
