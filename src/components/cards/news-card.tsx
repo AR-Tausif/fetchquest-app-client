@@ -1,11 +1,11 @@
-import { IBlogCardContent, IGameCardContent } from "@/types/home-page";
-import { ArrowRight, CalendarDays, Link } from "lucide-react";
+import { IBlogCardContent } from "@/types/home-page";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import Image from "next/image";
 interface INewsCardProps {
   content: IBlogCardContent;
 }
 export const NewsCard = ({ content }: INewsCardProps) => {
-  const { date, description, title, posterImg, site } = content;
+  const { title, posterImg } = content;
   return (
     <div className="border w-full border-[#7D3C98] space-y-2 p-4  rounded-lg">
       <Image
