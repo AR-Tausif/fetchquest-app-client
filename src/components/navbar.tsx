@@ -1,14 +1,10 @@
-"use client";
-import { ChevronDown, CircleUserRound, Headset, Menu, X } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC } from "react";
 
 import { Container } from "@/components/container";
-import { NavDropdown } from "@/components/dropdown";
+
 import { bebasFont } from "./top-headings/SectionHeading";
-import { set } from "zod";
-import { NavigationMenuDemo } from "./dropdown/nav-menu";
+
+import { NavigationMenuDemo } from "./menu/nav-menu";
 
 const Logo = "/images/website-logo.svg";
 
@@ -16,16 +12,16 @@ interface NavbarProps {
   className?: string;
 }
 export const Navbar: FC<NavbarProps> = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const onMouseLeave = () => {
-    setDropdownOpen(false);
-  };
+  // const onMouseLeave = () => {
+  //   setDropdownOpen(false);
+  // };
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  // const toggleMobileMenu = () => {
+  //   setMobileMenuOpen(!mobileMenuOpen);
+  // };
 
   return (
     <nav

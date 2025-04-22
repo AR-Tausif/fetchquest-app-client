@@ -2,6 +2,7 @@ import { ProfileSidebar } from "@/components/profile-sidebar";
 import { Metadata } from "next";
 import Image from "next/image";
 import { useState } from "react";
+import { ProfileSidebarHeaderCard } from "./profile/_components/profile-sidebar-header-card";
 export const metadata: Metadata = {
   title: "Profile Page",
   description: "User profile page built with Tailwind CSS",
@@ -23,23 +24,7 @@ export default function ProfileLayout({
               {/* Sidebar */}
               <div className="w-full md:w-80 border border-gray-200 rounded-sm">
                 {/* Profile Header */}
-                <div className="p-4 border-b border-gray-200">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src="https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
-                      alt="Profile"
-                      width={50}
-                      height={50}
-                      className="rounded-full"
-                    />
-                    <div>
-                      <p className="text-sm text-gray-600">Hello</p>
-                      <h2 className="text-lg font-bold text-[#333333]">
-                        ROBERT FOX
-                      </h2>
-                    </div>
-                  </div>
-                </div>
+                <ProfileSidebarHeaderCard/>
 
                 <ProfileSidebar />
               </div>

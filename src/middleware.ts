@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { store } from "./redux/store";
 
 // Define auth pages that shouldn't be accessed when logged in
 const authRoutes = ["/login", "/sign-up", "/verify-otp"];
@@ -15,15 +14,15 @@ const protectedRoutes = [
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  
+
   // Get the token from cookies
   const token = request.cookies.get("auth")?.value;
-//   const tokenRedux = store.getState().auth.token;
+  //   const tokenRedux = store.getState().auth.token;
   const isAuthenticated = !!token;
-  console.log({token, isAuthenticated});
+  console.log({ token, isAuthenticated });
 
   // Handle auth routes (login, register, etc.)
-  if (authRoutes.some(route => pathname.startsWith(route))) {
+  if (authRoutes.some((route) => pathname.startsWith(route))) {
     if (isAuthenticated) {
       // Redirect to home if user is already logged in
       return NextResponse.redirect(new URL("/", request.url));
@@ -32,7 +31,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Handle protected routes
-  if (protectedRoutes.some(route => pathname.startsWith(route))) {
+  if (protectedRoutes.some((route) => pathname.startsWith(route))) {
     if (!isAuthenticated) {
       // Redirect to login if user is not authenticated
       const redirectUrl = new URL("/login", request.url);

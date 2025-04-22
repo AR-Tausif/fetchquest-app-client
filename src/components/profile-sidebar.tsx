@@ -17,11 +17,11 @@ export const ProfileSidebar = () => {
   const [activeTab, setActiveTab] = useState("Personal Information");
   const menuItems = [
     { name: "Personal Information", icon: "user" },
-    { name: "Earning Overview", icon: "dollar-sign" },
-    { name: "Payment Overview", icon: "credit-card" },
+    // { name: "Earning Overview", icon: "dollar-sign" },
+    // { name: "Payment Overview", icon: "credit-card" },
     { name: "Purchase List", icon: "shopping-bag" },
-    { name: "Set Pricing", icon: "tag" },
-    { name: "Buy Products", icon: "shopping-cart" },
+    // { name: "Set Pricing", icon: "tag" },
+    // { name: "Buy Products", icon: "shopping-cart" },
     { name: "Settings", icon: "settings" },
   ];
 

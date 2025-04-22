@@ -50,9 +50,27 @@ interface data {
   refreshToken: string;
   otpToken: IOtpToken;
 }
+interface IMyProfile {
+  _id: string;
+  email: string;
+  contact: string;
+  createdAt: string;
+  image: string;
+  isDeleted: boolean;
+  isverified: boolean;
+  name: string;
+  role: "user" | "admin";
+  status: number;
+  updatedAt: string;
+}
 
 export interface IAuthResponse {
   success: boolean;
   message: string;
   data: data;
+}
+export interface IProfileResponse {
+  success: boolean;
+  message: string;
+  data: IMyProfile;
 }
