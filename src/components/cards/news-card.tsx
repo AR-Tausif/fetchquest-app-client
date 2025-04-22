@@ -1,24 +1,25 @@
-import { IGameCardContent } from "@/types/home-page";
+import { IBlogCardContent, IGameCardContent } from "@/types/home-page";
 import { ArrowRight, CalendarDays, Link } from "lucide-react";
 import Image from "next/image";
 interface INewsCardProps {
-  content: IGameCardContent;
+  content: IBlogCardContent;
 }
 export const NewsCard = ({ content }: INewsCardProps) => {
-  const { date, gameName, posterImg, site } = content;
+  const { date, description, title, posterImg, site } = content;
   return (
     <div className="border w-full border-[#7D3C98] space-y-2 p-4  rounded-lg">
       <Image
-        src={posterImg? posterImg : '/images/posters/poster-15.png'}
+        src={posterImg ? posterImg : "/images/posters/poster-15.png"}
         alt="card photo"
         className="h-[100vw] md:h-[25vw] w-full rounded-lg object-cover"
         width={1000}
         height={1000}
       />
-      <p className="uppercase font-semibold text-xl">FC25</p>
+      <p className="uppercase font-semibold text-xl">{title}</p>
       <div className="flex justify-between">
         <div className="flex">
           <CalendarDays />
+          {/* TODO: get date by like this */}
           <p>27/10/2024</p>
         </div>
         <a href="#">

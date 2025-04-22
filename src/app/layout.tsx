@@ -24,7 +24,9 @@ export default function RootLayout({
         <Providers>
           <main className="w-screen overflow-hidden">
             <Navbar />
+
             {children}
+
             <Footer />
           </main>
         </Providers>

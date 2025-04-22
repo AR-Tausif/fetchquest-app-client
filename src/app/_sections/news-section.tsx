@@ -7,9 +7,10 @@ import { EmblaCarousel } from "@/components/carousle";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { usePrevNextButtons } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
-import { newsSlides } from "@/assets/game-data";
+import { useGetAllBlogs } from "@/hooks/rtk-queries/useGetAllBlogs";
 
 export const NewsSection = () => {
+  const { blogSlide } = useGetAllBlogs();
   const OPTIONS: EmblaOptionsType = {
     containScroll: false,
     align: "center", // default alignment for mobile/tablet devices
@@ -20,8 +21,8 @@ export const NewsSection = () => {
       },
     },
   };
-  const SLIDE_COUNT = 10;
-  const SLIDES = newsSlides;
+  // const SLIDE_COUNT = 10;
+  const SLIDES = blogSlide;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {
     prevBtnDisabled,
