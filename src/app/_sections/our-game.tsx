@@ -10,9 +10,11 @@ import {
 } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
 import { Container } from "@/components/container";
 import Image from "next/image";
-import { gameSlides } from "@/assets/game-data";
+// import { gameSlides } from "@/assets/game-data";
+import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
 
 export const OurGameSection = () => {
+  const { gameSlide, isGamePending } = useGetAllGames();
   const OPTIONS: EmblaOptionsType = {
     containScroll: false,
     align: "center", // default alignment for mobile/tablet devices
@@ -24,7 +26,7 @@ export const OurGameSection = () => {
     },
   };
 
-  const SLIDES = gameSlides;
+  const SLIDES = gameSlide;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {
     prevBtnDisabled,

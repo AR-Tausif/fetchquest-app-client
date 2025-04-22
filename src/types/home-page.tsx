@@ -1,5 +1,5 @@
 export interface IGameCardContent {
-  id: number;
+  id: number | string;
   posterImg: string;
   gameName: string;
   date: string;
