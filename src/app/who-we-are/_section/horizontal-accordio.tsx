@@ -1,29 +1,32 @@
+"use client";
 import { useState } from "react";
 import { GameItemBox } from "@/components/boxes";
 import {
   HorizontalAccFirstItemCard,
   HorizontalAccLastItemContent,
 } from "@/components/cards";
-import { AppButton } from "@/components/buttons/app-button";
+import { useGetProducts } from "@/hooks/rtk-queries/useGetAllProducts";
+import { ProductListSkeleton } from "@/components/skeleton/product-list-skeleton";
 
 export const HorizontalAccordion = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
 
+  // get products
+  const { products, isProductPending } = useGetProducts();
   const handleClick = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   const items = [
     {
-      bgUrl:
-        "/images/pages/who-we-are/section-three/container-bg-1.jpg",
+      bgUrl: "/images/pages/who-we-are/section-three/container-bg-1.jpg",
       content: "",
     },
     {
-      bgUrl:"/images/pages/who-we-are/section-three/container-bg-2.jpg",
+      bgUrl: "/images/pages/who-we-are/section-three/container-bg-2.jpg",
       content: (
         <div className="">
-          <div className="space-x-4 my-4">
+          {/* <div className="space-x-4 my-4">
           <AppButton
             variant="outline"
             className="p-4 hover:bg-[#DA5DA3] text-white transition-all duration-300 ease-in-out text-sm px-3"
@@ -42,19 +45,21 @@ export const HorizontalAccordion = () => {
           >
             Gamepads
           </AppButton>
-          </div>
-          <div className="flex justify-center items-center px-4">
-            <GameItemBox />
-            <GameItemBox />
-            <GameItemBox />
-            <GameItemBox />
-          </div>
+          </div> */}
+          {isProductPending ? (
+            <ProductListSkeleton />
+          ) : (
+            <div className="flex justify-center items-center px-4">
+              {products?.map((product, index) => {
+                return <GameItemBox key={index} product={product} />;
+              })}
+            </div>
+          )}
         </div>
       ),
     },
     {
-      bgUrl:
-        "/images/pages/who-we-are/section-three/container-bg-3.jpg",
+      bgUrl: "/images/pages/who-we-are/section-three/container-bg-3.jpg",
       content: <HorizontalAccLastItemContent />,
     },
   ];
