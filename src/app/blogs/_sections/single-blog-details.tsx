@@ -17,11 +17,7 @@ export default function SingleBlogDetails({ blogId }: { blogId: string }) {
       ) : (
         <div className="space-y-6 px-4">
           <div className="p-0 md:px-8 w-full">
-            <VideoEmbed
-              placeholderImage={
-                data?.data.image || "/images/pages/blogs/single-blog.jpg"
-              }
-            />
+            <VideoEmbed placeholderImage={data?.data.image} />
           </div>
 
           <div className="space-y-10 flex flex-col justify-center items-center pb-10">

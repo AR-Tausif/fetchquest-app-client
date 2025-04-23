@@ -54,7 +54,7 @@ const BlogPage = () => {
             <BlogNewsCard /> */}
           </div>
           {/* pagination */}
-          <PaginationCard />
+          {/* <PaginationCard /> */}
         </section>
       </Container>
     </div>

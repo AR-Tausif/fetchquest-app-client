@@ -52,9 +52,9 @@ export const Footer = () => {
     {
       title: "COMPANY",
       links: [
-        { href: "/", label: "About" },
-        { href: "/", label: "Careers" },
-        { href: "/", label: "Support" },
+        { href: "/about-us", label: "About us" },
+        { href: "/", label: "Terms and conditions" },
+        { href: "/customer-support", label: "Support" },
       ],
     },
   ];
