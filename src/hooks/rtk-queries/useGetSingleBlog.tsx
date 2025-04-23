@@ -14,8 +14,7 @@ export const useGetSingleBlog = (blogId: string) => {
 
   if (!data) return { blogSlide: [], isBlogPending: isLoading };
   return {
-    blogSlide: data?.data?.data || [],
     isBlogPending: isLoading,
-    blogs: data?.data?.data || [],
+    blog: data?.data || {},
   };
 };
