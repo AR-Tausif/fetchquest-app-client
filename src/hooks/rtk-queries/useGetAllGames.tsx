@@ -2,7 +2,7 @@
 
 import { useGetGamesQuery } from "@/redux/api/games.api";
 
-interface IGameSlide {
+export interface IMappedGameSlide {
   id: string;
   posterImg: string;
   gameName: string;

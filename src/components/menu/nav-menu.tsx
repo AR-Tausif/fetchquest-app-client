@@ -57,7 +57,7 @@ export function NavigationMenuDemo() {
     align: "start",
   };
   const [emblaRef] = useEmblaCarousel(carouselOptions);
-  const slides = Array.from(Array(5).keys());
+  const slides = Array.from(Array(2).keys());
 
   // Event handlers
   const onMouseLeave = () => setDropdownOpen(false);
@@ -149,28 +149,31 @@ const GamesDropdownContent = ({
   slides,
 }: {
   emblaRef: any;
-  slides: number[];
-}) => (
-  <>
-    <div className="flex justify-center my-4">
-      <img
-        src="/images/our-games-dropdown.png"
-        alt="our games dropdown content image"
-        className="w-[25%]"
-      />
-    </div>
-    <p className="text-white">Up Coming Games</p>
-    <EmblaCarousel emblaRef={emblaRef}>
-      <div className="embla__container my-4">
-        {slides.map((index) => (
-          <div className="embla__slide" key={index}>
-            <DropdownGameCard />
-          </div>
-        ))}
+  slides:any;
+}) => {
+  const { gameSlide } = useGetAllGames();
+  return (
+    <div className="w-screen ps-20 pe-8">
+      <div className="flex justify-center my-4">
+        <img
+          src="/images/our-games-dropdown.png"
+          alt="our games dropdown content image"
+          className="w-[25%]"
+        />
       </div>
-    </EmblaCarousel>
-  </>
-);
+      <p className="text-white">Up Coming Games</p>
+      <EmblaCarousel emblaRef={emblaRef}>
+        <div className="embla__container my-4 mx-14">
+          {gameSlide.map((game) => (
+            <div className="embla__slide" key={game.id}>
+              <DropdownGameCard gameContent={game} />
+            </div>
+          ))}
+        </div>
+      </EmblaCarousel>
+    </div>
+  );
+};
 
 const CustomerSupportLink = () => (
   <NavigationMenuItem className="px-4">
@@ -187,6 +190,8 @@ const CustomerSupportLink = () => (
 
 import Cookies from "js-cookie";
 import { setUser } from "@/redux/features/auth.slice";
+import { IBlog } from "@/types/redux/blogs";
+import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
 const UserAccountLink = () => {
   const { isAuthenticated } = useAuth();
   const { data: myProfile, isLoading: myProfileLoading } =
