@@ -8,7 +8,7 @@ const authRoutes = ["/login", "/sign-up", "/verify-otp"];
 const protectedRoutes = [
   "/profile",
   "/edit-profile",
-  "/customer-support",
+  // "/customer-support",
   "/dashboard",
 ];
 

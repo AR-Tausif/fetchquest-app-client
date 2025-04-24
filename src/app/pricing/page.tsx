@@ -1,13 +1,12 @@
 "use client";
 
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
-import { HolderItemImage } from "./_sections/holder-item-image";
-import { ProductDetails } from "./_sections/product-details";
+import { ProductDetails } from "../products/_sections/product-details";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Container } from "@/components/container";
-import { ProductDescription } from "./_sections/product-description";
-import { ProductInformation } from "./_sections/product-information";
-import { ProductReview } from "./_sections/product-review";
+import { ProductDescription } from "../products/_sections/product-description";
+import { ProductInformation } from "../products/_sections/product-information";
+import { ProductReview } from "../products/_sections/product-review";
 
 const Pricing = () => {
   const tabsItems = [
@@ -36,7 +35,7 @@ const Pricing = () => {
       {/* content section */}
       <div className="">
         <div className="p-6">
-          <ProductDetails />
+          <ProductDetails product={product} />
         </div>
       </div>
 

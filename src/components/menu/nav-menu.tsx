@@ -194,72 +194,71 @@ import { IBlog } from "@/types/redux/blogs";
 import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
 const UserAccountLink = () => {
   const { isAuthenticated } = useAuth();
-  const { data: myProfile, isLoading: myProfileLoading } =
-    useGetProfileQuery(undefined);
-  console.log("isAuthenticated", isAuthenticated); // Add this line to check the value of isAuthenticated in the console
-
+  const { data: myProfile, isLoading: myProfileLoading } = useGetProfileQuery(undefined);
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const handleLogout = () => {
-    // Clear the token from local storage
 
-    // Dispatch the logout action
+  const handleLogout = () => {
     dispatch(setUser({ user: null, token: null }));
-    // Clear the token from cookies
     Cookies.remove("auth");
-    // Redirect to the login page
     router.push("/login");
   };
-  return (
-    <NavigationMenuItem className="px-4">
-      {myProfileLoading ? (
+
+  if (myProfileLoading) {
+    return (
+      <NavigationMenuItem className="px-4">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-gray-300 rounded-full animate-pulse"></div>
           <div className="w-28 h-6 bg-gray-300 rounded-sm animate-pulse"></div>
         </div>
-      ) : (
-        // <Link href="/login" legacyBehavior passHref>
-        <NavigationMenuLink>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <div className={`${FONT_SIZE} flex gap-x-2 ${HOVER_STYLE}`}>
-                {isAuthenticated ? (
-                  <Image
-                    src="https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
-                    alt="user account iamge"
-                    className="rounded-full"
-                    width={32}
-                    height={32}
-                  />
-                ) : (
-                  <CircleUserRound className="primary-icon" />
-                )}
-                <p>{myProfile?.data?.name}</p>
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuItem asChild>
-                  <Link href="/profile">Profile</Link>
-                </DropdownMenuItem>
-                {/* <DropdownMenuItem>
-                  Settings
-                  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                </DropdownMenuItem> */}
-              </DropdownMenuGroup>
+      </NavigationMenuItem>
+    );
+  }
 
-              <DropdownMenuSeparator />
+  if (!isAuthenticated) {
+    return (
+      <NavigationMenuItem className="px-4">
+        <Link href="/login" legacyBehavior passHref>
+          <NavigationMenuLink className={`${FONT_SIZE} flex justify-between items-center gap-x-2 ${HOVER_STYLE}`}>
+            <CircleUserRound className="primary-icon" />
+            <p className="">Login</p>
+          </NavigationMenuLink>
+        </Link>
+      </NavigationMenuItem>
+    );
+  }
 
-              <DropdownMenuItem onClick={handleLogout}>
-                Log out
+  return (
+    <NavigationMenuItem className="px-4">
+      <NavigationMenuLink>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <div className={`${FONT_SIZE} flex gap-x-2 ${HOVER_STYLE}`}>
+              <Image
+                src={myProfile?.data?.image || "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"}
+                alt="user account image"
+                className="rounded-full"
+                width={32}
+                height={32}
+              />
+              <p>{myProfile?.data?.name}</p>
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem asChild>
+                <Link href="/profile">Profile</Link>
               </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </NavigationMenuLink>
-        // </Link>
-      )}
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleLogout}>
+              Log out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </NavigationMenuLink>
     </NavigationMenuItem>
   );
 };

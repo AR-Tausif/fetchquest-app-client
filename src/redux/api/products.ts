@@ -1,7 +1,7 @@
 import { IResponse } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
 import { tagTypes } from "../tag.types";
-import { IProductResponse } from "@/types/redux/products";
+import { IProduct, IProductResponse } from "@/types/redux/products";
 
 const productsApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -12,7 +12,16 @@ const productsApi = fetchquestBaseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.product],
     }),
+    getSingleProduct: builder.query<IResponse<IProduct>, { productId: string }>(
+      {
+        query: (product) => ({
+          url: `/products/${product.productId}`,
+          method: "GET",
+        }),
+        providesTags: [tagTypes.product],
+      }
+    ),
   }),
 });
 
-export const { useGetProductsQuery } = productsApi;
+export const { useGetProductsQuery, useGetSingleProductQuery } = productsApi;

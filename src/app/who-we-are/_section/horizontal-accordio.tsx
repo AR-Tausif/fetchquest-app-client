@@ -51,7 +51,7 @@ export const HorizontalAccordion = () => {
           ) : (
             <div className="flex justify-center items-center px-4">
               {products?.map((product, index) => {
-                return <GameItemBox key={index} product={product} />;
+                return <GameItemBox key={product._id} product={product} />;
               })}
             </div>
           )}

@@ -1,7 +1,19 @@
 import { AppButton } from "@/components/buttons/app-button";
 import { ChooseQuantity } from "./choose-quantity";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ChevronRight } from "lucide-react";
+import { useIsAuthenticated } from "@/hooks/useIsAuthenticated";
+import { IProduct } from "@/types/redux/products";
 
-export const TextContents = () => {
+export const TextContents = ({ product }: { product: IProduct }) => {
+  const { isAuthenticated, setIsAuthenticated, isToken } = useIsAuthenticated();
+  console.log({ isAuthenticated });
   return (
     <div className="mt-6 sm:mt-8 lg:mt-0">
       <div className="space-y-6">
@@ -14,11 +26,12 @@ export const TextContents = () => {
           </div>
         </div>
         <p className="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
-          PLAW STATION 08
+          {product.name}
         </p>
       </div>
       <div className="mt-4 space-y-6">
-        <div className="flex items-center gap-2 mt-2 sm:mt-0">
+        {/* Product reviews */}
+        {/* <div className="flex items-center gap-2 mt-2 sm:mt-0">
           <div className="flex items-center gap-1">
             <svg
               className="w-4 h-4 text-yellow-300"
@@ -85,15 +98,20 @@ export const TextContents = () => {
           >
             345 Reviews
           </a>
-        </div>
-        <p className="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
+        </div> */}
+        <p className="text-2xl font-extrabold text-[#DA5DA3] sm:text-3xl dark:text-white">
           $1,249.99
         </p>
-        <p className="text-sm">Tax Included</p>
+        {/* <p className="text-sm">Tax Included</p> */}
 
         <div className="flex gap-x-2 items-center">
           <div className="w-3 h-3 rounded-sm bg-[#DA5DA3]"></div>
-          <p className="">STOCK, In stock, ready to be shipped</p>
+          <p className="">
+            {product.stock <= 0
+              ? "Out of stock"
+              : "In stock, ready to be shipped"}
+            {/* In stock, ready to be shipped */}
+          </p>
         </div>
         <div className="">
           <label htmlFor="counter-input" className="sr-only">
@@ -101,9 +119,37 @@ export const TextContents = () => {
           </label>
           <ChooseQuantity />
         </div>
-        <AppButton className="w-full py-3 text-xl roboto-fonts">
-          Buty it now
-        </AppButton>
+        {isToken ? (
+          <AppButton className="w-full py-3 text-xl roboto-fonts">
+            Buy it now
+          </AppButton>
+        ) : (
+          <Dialog open={isAuthenticated} onOpenChange={setIsAuthenticated}>
+            <DialogTrigger asChild>
+              <AppButton className="w-full py-3 text-xl roboto-fonts">
+                Buy it now
+              </AppButton>
+            </DialogTrigger>
+
+            <DialogContent className="sm:max-w-[425px] px-10 py-14">
+              <DialogHeader>
+                <DialogTitle className="text-2xl text-center text-gray-500">
+                  To buy a product, please log in to your account.
+                </DialogTitle>
+              </DialogHeader>
+
+              <AppButton>
+                <p className="flex justify-center items-center">
+                  <p>LOG INTO YOUR ACCOUNT</p>
+                  <p>
+                    {" "}
+                    <ChevronRight />{" "}
+                  </p>
+                </p>
+              </AppButton>
+            </DialogContent>
+          </Dialog>
+        )}
       </div>
     </div>
   );
