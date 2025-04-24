@@ -9,6 +9,7 @@ const protectedRoutes = [
   "/profile",
   "/edit-profile",
   // "/customer-support",
+  "/checkout",
   "/dashboard",
 ];
 
