@@ -1,6 +1,28 @@
 import { AppButton } from "@/components/buttons/app-button";
+import { selectCartItemById } from "@/redux/features/cart.slice";
+import { useAppSelector } from "@/redux/hooks";
+import { useState } from "react";
 
-export const ChooseQuantity = () => {
+export const ChooseQuantity = ({
+  handleAddToCart,
+  displayQuantity,
+}: {
+  handleAddToCart: any;
+  displayQuantity?: number;
+}) => {
+  const [quantity, setQuantity] = useState(0);
+
+  const handleIncrement = () => {
+    console.log({ quantity });
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const handleDecrement = () => {
+    if (quantity! > 1) {
+      setQuantity((prevQuantity) => prevQuantity! - 1);
+    }
+  };
+
   return (
     <div className="">
       <label htmlFor="counter-input" className="sr-only">
@@ -13,6 +35,7 @@ export const ChooseQuantity = () => {
             id="decrement-button"
             data-input-counter-decrement="counter-input"
             className="roboto-fonts inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+            onClick={handleDecrement}
           >
             <svg
               className="h-2.5 w-2.5 text-gray-900 dark:text-white"
@@ -32,10 +55,10 @@ export const ChooseQuantity = () => {
           </button>
           <input
             type="text"
-            
             className="roboto-fonts w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white"
             placeholder=""
-            defaultValue={1}
+            value={quantity}
+            onChange={(e) => setQuantity(Number(e.target.value))}
             required
           />
           <button
@@ -43,6 +66,7 @@ export const ChooseQuantity = () => {
             id="increment-button"
             data-input-counter-increment="counter-input"
             className="roboto-fonts inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+            onClick={handleIncrement}
           >
             <svg
               className="h-2.5 w-2.5 text-gray-900 dark:text-white"
@@ -61,7 +85,11 @@ export const ChooseQuantity = () => {
             </svg>
           </button>
         </div>
-        <AppButton variant="outline" className="py-3 w-full roboto-fonts">
+        <AppButton
+          onClick={() => handleAddToCart({ quantity: Number(quantity) })}
+          variant="outline"
+          className="py-3 w-full roboto-fonts"
+        >
           Add to cart
         </AppButton>
       </div>

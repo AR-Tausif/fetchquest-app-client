@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CircleUserRound, Headset } from "lucide-react";
+import { CircleUserRound, Headset, ShoppingCart } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaOptionsType } from "embla-carousel";
 
@@ -20,25 +20,20 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 import { useAuth } from "@/hooks/useAuth";
 import { useGetProfileQuery } from "@/redux/api/users.api";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
 
 const LOGO = "/images/website-logo.svg";
@@ -78,6 +73,7 @@ export function NavigationMenuDemo() {
       <NavigationMenuList className="justify-self-start hidden md:flex">
         <CustomerSupportLink />
         <UserAccountLink />
+        <ShoppingCartArea />
       </NavigationMenuList>
 
       {/* Mobile menu */}
@@ -149,7 +145,7 @@ const GamesDropdownContent = ({
   slides,
 }: {
   emblaRef: any;
-  slides:any;
+  slides: any;
 }) => {
   const { gameSlide } = useGetAllGames();
   return (
@@ -187,14 +183,35 @@ const CustomerSupportLink = () => (
     </Link>
   </NavigationMenuItem>
 );
+const ShoppingCartArea = () => {
+  const cartTotalQuantity = useAppSelector((state) => state.cart.totalQuantity);
+  return (
+    <NavigationMenuItem className="px-4">
+      <Sheet>
+        <SheetTrigger asChild>
+          <button className="p-2 rounded-full hover:bg-gray-100 relative">
+            <ShoppingCart size={22} />
+            <span className="absolute -top-1 -right-1 bg-[#d33246] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">
+              {cartTotalQuantity}
+            </span>
+          </button>
+        </SheetTrigger>
+        <ShoppingCartSheetContent />
+      </Sheet>
+    </NavigationMenuItem>
+  );
+};
 
 import Cookies from "js-cookie";
 import { setUser } from "@/redux/features/auth.slice";
 import { IBlog } from "@/types/redux/blogs";
 import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
+import { Sheet, SheetTrigger } from "../ui/sheet";
+import { ShoppingCartSheetContent } from "../sheets";
 const UserAccountLink = () => {
   const { isAuthenticated } = useAuth();
-  const { data: myProfile, isLoading: myProfileLoading } = useGetProfileQuery(undefined);
+  const { data: myProfile, isLoading: myProfileLoading } =
+    useGetProfileQuery(undefined);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -219,7 +236,9 @@ const UserAccountLink = () => {
     return (
       <NavigationMenuItem className="px-4">
         <Link href="/login" legacyBehavior passHref>
-          <NavigationMenuLink className={`${FONT_SIZE} flex justify-between items-center gap-x-2 ${HOVER_STYLE}`}>
+          <NavigationMenuLink
+            className={`${FONT_SIZE} flex justify-between items-center gap-x-2 ${HOVER_STYLE}`}
+          >
             <CircleUserRound className="primary-icon" />
             <p className="">Login</p>
           </NavigationMenuLink>
@@ -235,7 +254,10 @@ const UserAccountLink = () => {
           <DropdownMenuTrigger asChild>
             <div className={`${FONT_SIZE} flex gap-x-2 ${HOVER_STYLE}`}>
               <Image
-                src={myProfile?.data?.image || "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"}
+                src={
+                  myProfile?.data?.image ||
+                  "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
+                }
                 alt="user account image"
                 className="rounded-full"
                 width={32}
@@ -253,9 +275,7 @@ const UserAccountLink = () => {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout}>
-              Log out
-            </DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>Log out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </NavigationMenuLink>

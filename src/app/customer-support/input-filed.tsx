@@ -138,7 +138,7 @@ export default function CustomerSupportForm() {
             )}
           </div>
 
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <button
               type="button"
               onClick={handleFileAttach}
@@ -146,7 +146,7 @@ export default function CustomerSupportForm() {
             >
               + Attach a file
             </button>
-          </div>
+          </div> */}
 
           <div className="flex justify-center gap-4">
             <button
@@ -162,13 +162,13 @@ export default function CustomerSupportForm() {
                 "Submit"
               )}
             </button>
-            <button
+            {/* <button
               type="button"
               // onClick={() => reset()}
               className="px-8 py-2 bg-white text-gray-700 uppercase font-medium border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none"
             >
               Cancel
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

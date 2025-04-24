@@ -10,10 +10,48 @@ import {
 import { ChevronRight } from "lucide-react";
 import { useIsAuthenticated } from "@/hooks/useIsAuthenticated";
 import { IProduct } from "@/types/redux/products";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { addToCart, selectCartItemById } from "@/redux/features/cart.slice";
+import { toast } from "sonner";
+import { useState } from "react";
 
 export const TextContents = ({ product }: { product: IProduct }) => {
   const { isAuthenticated, setIsAuthenticated, isToken } = useIsAuthenticated();
   console.log({ isAuthenticated });
+  const [loading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const targetedProductQuantity = useAppSelector(
+    (state) => selectCartItemById(state, product._id)?.quantity
+  );
+
+  const handleAddToCart = async ({ quantity = 1 }: { quantity: number }) => {
+    setLoading(true);
+    console.log(loading);
+    // simulate delay or wait for server update if syncing with DB
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    if (product.stock <= 0) {
+      toast.error("This product is out of stock");
+      return;
+    }
+
+    const d = dispatch(
+      addToCart({
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        quantity: quantity,
+        imageUrl: product.images[0],
+      })
+    );
+
+    console.log(d);
+
+    toast.success("Added to cart successfully");
+    setLoading(false);
+    console.log(loading);
+  };
+
   return (
     <div className="mt-6 sm:mt-8 lg:mt-0">
       <div className="space-y-6">
@@ -117,7 +155,10 @@ export const TextContents = ({ product }: { product: IProduct }) => {
           <label htmlFor="counter-input" className="sr-only">
             Choose quantity:
           </label>
-          <ChooseQuantity />
+          <ChooseQuantity
+            displayQuantity={targetedProductQuantity}
+            handleAddToCart={handleAddToCart}
+          />
         </div>
         {isToken ? (
           <AppButton className="w-full py-3 text-xl roboto-fonts">

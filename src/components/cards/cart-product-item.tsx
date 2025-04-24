@@ -1,6 +1,6 @@
 import { removeFromCart, updateQuantity } from "@/redux/features/cart.slice";
 import { useAppDispatch } from "@/redux/hooks";
-import { Loader, Minus, Plus } from "lucide-react";
+import { Delete, Loader, Minus, Plus, Trash, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 import { useState } from "react";
@@ -16,24 +16,18 @@ interface Props {
 export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
   const dispatch = useAppDispatch();
 
-  const [increaseLoading, setIncreaseLoading] = useState(false);
-  const [decreaseLoading, setDecreaseLoading] = useState(false);
   const increaseQuantity = async () => {
-    setIncreaseLoading(true);
     // simulate delay or wait for server update if syncing with DB
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    // await new Promise((resolve) => setTimeout(resolve, 500));
     dispatch(updateQuantity({ id, quantity: quantity + 1 }));
-    setIncreaseLoading(false);
   };
 
   const decreaseQuantity = async () => {
-    setDecreaseLoading(true);
     // simulate delay or wait for server update if syncing with DB
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    // await new Promise((resolve) => setTimeout(resolve, 500));
     if (quantity > 1) {
       dispatch(updateQuantity({ id, quantity: quantity - 1 }));
     }
-    setDecreaseLoading(false);
   };
 
   const handleRemove = () => {
@@ -59,13 +53,8 @@ export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
           <button
             onClick={decreaseQuantity}
             className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center"
-            disabled={decreaseLoading}
           >
-            {decreaseLoading ? (
-              <Loader className="animate-spin h-4 w-4" />
-            ) : (
-              <Minus size={16} />
-            )}
+            <Minus size={16} />
           </button>
 
           <span className="w-6 text-center">{quantity}</span>
@@ -73,13 +62,12 @@ export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
           <button
             onClick={increaseQuantity}
             className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center"
-            disabled={increaseLoading}
           >
-            {increaseLoading ? (
+            {/* {increaseLoading ? (
               <Loader className="animate-spin h-4 w-4" />
-            ) : (
-              <Plus size={16} />
-            )}
+            ) : ( */}
+            <Plus size={16} />
+            {/* )} */}
           </button>
 
           <div className="ml-auto flex items-center gap-3">
@@ -87,7 +75,7 @@ export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
               £{(price * quantity).toFixed(2)}
             </span>
             <button onClick={handleRemove} className="text-gray-500">
-              🗑️
+              <Trash2 className="text-red-500" size={16} />
             </button>
           </div>
         </div>

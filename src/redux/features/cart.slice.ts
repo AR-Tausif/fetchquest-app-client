@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 interface CartItem {
   id: string;
@@ -14,11 +15,22 @@ interface CartState {
   totalAmount: number;
 }
 
-const initialState: CartState = {
-  items: [],
-  totalQuantity: 0,
-  totalAmount: 0,
+// Load initial state from localStorage
+const loadCartState = (): CartState => {
+  if (typeof window !== 'undefined') {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      return JSON.parse(savedCart);
+    }
+  }
+  return {
+    items: [],
+    totalQuantity: 0,
+    totalAmount: 0,
+  };
 };
+
+const initialState: CartState = loadCartState();
 
 const cartSlice = createSlice({
   name: "cart",
@@ -36,6 +48,8 @@ const cartSlice = createSlice({
 
       state.totalQuantity += newItem.quantity;
       state.totalAmount += newItem.price * newItem.quantity;
+      // Save to localStorage
+      localStorage.setItem('cart', JSON.stringify(state));
     },
     removeFromCart(state, action: PayloadAction<string>) {
       const id = action.payload;
@@ -45,6 +59,8 @@ const cartSlice = createSlice({
         state.totalQuantity -= existingItem.quantity;
         state.totalAmount -= existingItem.price * existingItem.quantity;
         state.items = state.items.filter((item) => item.id !== id);
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(state));
       }
     },
     updateQuantity(
@@ -59,10 +75,23 @@ const cartSlice = createSlice({
         item.quantity = quantity;
         state.totalQuantity += quantityDifference;
         state.totalAmount += item.price * quantityDifference;
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(state));
       }
+    },
+    clearCart(state) {
+      state.items = [];
+      state.totalQuantity = 0;
+      state.totalAmount = 0;
+      // Clear localStorage
+      localStorage.removeItem('cart');
     },
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
+// Add selector for single product
+export const selectCartItemById = (state: RootState, productId: string) => 
+  state.cart.items.find(item => item.id === productId);
+
+export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
