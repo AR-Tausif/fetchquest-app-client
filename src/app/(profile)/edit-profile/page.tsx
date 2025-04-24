@@ -65,10 +65,7 @@ export default function ProfilePage() {
       setValue("name", profileData.data.name);
       setValue("contact", profileData.data.contact);
       setValue("email", profileData.data.email);
-      setPreviewUrl(
-        profileData.data.image ||
-          "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
-      );
+      setPreviewUrl(profileData?.data.image);
     }
   }, [profileData, setValue]);
 
@@ -103,7 +100,8 @@ export default function ProfilePage() {
     formData.append("contact", data.contact);
     formData.append("email", data.email);
     if (data.profileImage?.[0]) {
-      formData.append("profileImage", data.profileImage[0]);
+      // Change the field name to 'image' instead of 'profileImage'
+      formData.append("image", data.profileImage[0]);
     }
 
     try {

@@ -31,7 +31,10 @@ export default function ProfilePage() {
             <div className="absolute -top-16 left-4">
               <div className="relative">
                 <Image
-                  src="https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
+                  src={
+                    myProfile?.data.image ||
+                    "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
+                  }
                   alt="Profile"
                   width={80}
                   height={80}
