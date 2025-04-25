@@ -218,7 +218,8 @@ const UserAccountLink = () => {
   const handleLogout = () => {
     dispatch(setUser({ user: null, token: null }));
     Cookies.remove("auth");
-    router.push("/login");
+    // router.push("/login");
+    window.location.href = "/login";
   };
 
   if (myProfileLoading) {

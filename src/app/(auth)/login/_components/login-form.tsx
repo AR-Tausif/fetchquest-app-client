@@ -79,7 +79,7 @@ export default function LoginForm() {
       
 
       toast.success(response.message || "Successfully logged in");
-      router.push("/"); // Will be handled by middleware if needed
+      window.location.href = "/";
     } catch (error: any) {
       // Handle different error types
       if (error.status === 401) {

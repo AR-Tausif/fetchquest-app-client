@@ -15,6 +15,7 @@ import { addToCart, selectCartItemById } from "@/redux/features/cart.slice";
 import { toast } from "sonner";
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Add this import
+import Link from "next/link";
 
 export const TextContents = ({ product }: { product: IProduct }) => {
   const { isAuthenticated, setIsAuthenticated, isToken } = useIsAuthenticated();
@@ -211,13 +212,15 @@ export const TextContents = ({ product }: { product: IProduct }) => {
               </DialogHeader>
 
               <AppButton>
-                <p className="flex justify-center items-center">
-                  <p>LOG INTO YOUR ACCOUNT</p>
-                  <p>
-                    {" "}
-                    <ChevronRight />{" "}
+                <Link href="/login">
+                  <p className="flex justify-center items-center">
+                    <p>LOG INTO YOUR ACCOUNT</p>
+                    <p>
+                      {" "}
+                      <ChevronRight />{" "}
+                    </p>
                   </p>
-                </p>
+                </Link>
               </AppButton>
             </DialogContent>
           </Dialog>
