@@ -257,7 +257,7 @@ const UserAccountLink = () => {
           <DropdownMenuTrigger asChild>
             <div className={`${FONT_SIZE} flex gap-x-2 ${HOVER_STYLE}`}>
               <Image
-                src={myProfile?.data?.image!}
+                src={myProfile?.data?.image || "https://i.pinimg.com/736x/15/0f/a8/150fa8800b0a0d5633abc1d1c4db3d87.jpg"}
                 alt="user account image"
                 className="rounded-full"
                 width={32}
