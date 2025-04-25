@@ -51,12 +51,12 @@ export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
         <h3 className="text-sm font-medium">{name}</h3>
 
         <div className="flex items-center gap-2 mt-2">
-          <AppButton
+          <button
             onClick={decreaseQuantity}
             className="w-8 h-8 rounded-full flex items-center justify-center"
           >
             <Minus size={16} />
-          </AppButton>
+          </button>
 
           <span className="w-6 text-center">{quantity}</span>
 
