@@ -3,6 +3,7 @@ import { SingleBlogDetailsSkeleton } from "@/components/skeleton/single-blog-det
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { useGetSingleBlogQuery } from "@/redux/api/blogs";
+import { getLocalDate } from "@/utils/localDate";
 import { AtSign, CalendarDays, Tag } from "lucide-react";
 import React from "react";
 
@@ -29,7 +30,7 @@ export default function SingleBlogDetails({ blogId }: { blogId: string }) {
             <div className="flex flex-wrap gap-x-20 gap-y-4">
               <div className="flex gap-x-2">
                 <CalendarDays className="text-gray-400" />
-                <p>October 21, 2025</p>
+                <p>{data?.data.createdAt ? getLocalDate(data?.data.createdAt) : "N/A" }</p>
               </div>
               <div className="flex gap-x-2">
                 <AtSign className="text-gray-400" />

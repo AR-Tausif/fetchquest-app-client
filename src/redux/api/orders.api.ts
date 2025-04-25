@@ -1,7 +1,7 @@
 import { IResponse } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
-import { ICustomerSupport } from "@/types/redux/customer-support";
 import { IOrderRequest, IOrderResponse } from "@/types/redux/orders";
+import { tagTypes } from "../tag.types";
 
 const ordersApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -11,13 +11,14 @@ const ordersApi = fetchquestBaseApi.injectEndpoints({
         method: "POST",
         body: orderBody,
       }),
+      invalidatesTags: [tagTypes.order],
     }),
     getMyOrders: builder.query({
       query: () => ({
         url: "/orders/my-orders",
         method: "GET",
       }),
-      // providesTags: [tagTypes.user],
+      providesTags: [tagTypes.order],
     }),
   }),
 });

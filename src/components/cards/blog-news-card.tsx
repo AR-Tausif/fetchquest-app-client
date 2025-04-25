@@ -3,6 +3,7 @@ import { SectionHeading } from "../top-headings/SectionHeading";
 import { GredientPragraphLittleBox } from "../boxes";
 import Link from "next/link";
 import { IBlog } from "@/types/redux/blogs";
+import { getLocalDate } from "@/utils/localDate";
 interface BlogNewsCardProps {
   blog: IBlog;
 }
@@ -19,8 +20,8 @@ export const BlogNewsCard = ({ blog }: BlogNewsCardProps) => {
         className="absolute -top-2 left-5 text-xs"
       />
       <div className="">
-        {/* TODO: get the date like the expectations */}
-        <p>October 21, 2025</p>
+    
+        <p>{blog.createdAt? getLocalDate(blog.createdAt): "N/A"}</p>
 
         <SectionHeading title={blog.name} className="leading-none" />
         <p className="">{blog.description.slice(0, 100)}...</p>

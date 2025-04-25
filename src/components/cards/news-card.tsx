@@ -1,11 +1,12 @@
 import { IBlogCardContent } from "@/types/home-page";
+import { getLocalDate } from "@/utils/localDate";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import Image from "next/image";
 interface INewsCardProps {
   content: IBlogCardContent;
 }
 export const NewsCard = ({ content }: INewsCardProps) => {
-  const { title, posterImg } = content;
+  const { title, posterImg, date } = content;
   return (
     <div className="border w-full border-[#7D3C98] space-y-2 p-4  rounded-lg">
       <Image
@@ -20,7 +21,7 @@ export const NewsCard = ({ content }: INewsCardProps) => {
         <div className="flex">
           <CalendarDays />
           {/* TODO: get date by like this */}
-          <p>27/10/2024</p>
+          <p>{date ? getLocalDate(date) : "N/A"}</p>
         </div>
         <a href="#">
           <div className="border p-2 rounded-full hover:bg-primary hover:text-white transition-all ease-linear duration-300">
