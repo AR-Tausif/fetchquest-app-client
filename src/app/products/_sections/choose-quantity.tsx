@@ -1,17 +1,18 @@
 import { AppButton } from "@/components/buttons/app-button";
 import { selectCartItemById } from "@/redux/features/cart.slice";
 import { useAppSelector } from "@/redux/hooks";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 export const ChooseQuantity = ({
   handleAddToCart,
-  displayQuantity,
+  quantity,
+  setQuantity,
 }: {
   handleAddToCart: any;
   displayQuantity?: number;
+  quantity?: number;
+  setQuantity: Dispatch<SetStateAction<number>>; // Remove optional
 }) => {
-  const [quantity, setQuantity] = useState(0);
-
   const handleIncrement = () => {
     console.log({ quantity });
     setQuantity((prevQuantity) => prevQuantity + 1);

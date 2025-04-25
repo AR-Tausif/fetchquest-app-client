@@ -14,12 +14,14 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { addToCart, selectCartItemById } from "@/redux/features/cart.slice";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Add this import
 
 export const TextContents = ({ product }: { product: IProduct }) => {
   const { isAuthenticated, setIsAuthenticated, isToken } = useIsAuthenticated();
-  console.log({ isAuthenticated });
   const [loading, setLoading] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useAppDispatch();
+  const router = useRouter(); // Add this
 
   const targetedProductQuantity = useAppSelector(
     (state) => selectCartItemById(state, product._id)?.quantity
@@ -50,6 +52,31 @@ export const TextContents = ({ product }: { product: IProduct }) => {
     toast.success("Added to cart successfully");
     setLoading(false);
     console.log(loading);
+  };
+
+  const handleBuyNow = async () => {
+    if (product.stock <= 0) {
+      toast.error("This product is out of stock");
+      return;
+    }
+
+    try {
+      // Add to cart with quantity 1
+      dispatch(
+        addToCart({
+          id: product._id,
+          name: product.name,
+          price: product.price,
+          quantity: quantity,
+          imageUrl: product.images[0],
+        })
+      );
+
+      // Redirect to checkout
+      router.push("/checkout");
+    } catch (error) {
+      toast.error("Failed to process purchase");
+    }
   };
 
   return (
@@ -156,12 +183,16 @@ export const TextContents = ({ product }: { product: IProduct }) => {
             Choose quantity:
           </label>
           <ChooseQuantity
-            displayQuantity={targetedProductQuantity}
             handleAddToCart={handleAddToCart}
+            quantity={quantity}
+            setQuantity={setQuantity}
           />
         </div>
         {isToken ? (
-          <AppButton className="w-full py-3 text-xl roboto-fonts">
+          <AppButton
+            onClick={handleBuyNow}
+            className="w-full py-3 text-xl roboto-fonts"
+          >
             Buy it now
           </AppButton>
         ) : (

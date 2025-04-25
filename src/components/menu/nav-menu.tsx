@@ -59,7 +59,7 @@ export function NavigationMenuDemo() {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
-    <NavigationMenu className="flex justify-between lg:justify-center lg:gap-x-[30vw] py-1">
+    <NavigationMenu className="flex justify-between lg:justify-center lg:gap-x-[20vw] py-1">
       {/* Left side navigation */}
       <NavigationMenuList>
         {/* Logo */}
@@ -70,7 +70,7 @@ export function NavigationMenuDemo() {
       </NavigationMenuList>
 
       {/* Right side navigation */}
-      <NavigationMenuList className="justify-self-start hidden md:flex">
+      <NavigationMenuList className="justify-self- hidden md:flex">
         <CustomerSupportLink />
         <UserAccountLink />
         <ShoppingCartArea />

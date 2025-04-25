@@ -44,7 +44,7 @@ export interface IUser {
   verification: IVerification;
 }
 
-export interface authResponseData {
+export interface IAuthResponseData {
   user: IUser;
   accessToken: string;
   refreshToken: string;

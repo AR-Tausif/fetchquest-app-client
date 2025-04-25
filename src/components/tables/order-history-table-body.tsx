@@ -8,7 +8,9 @@ interface IOrderHistoryTableBodyProps {
   orders: IOrderResponse[];
 }
 
-export const OrderHistoryTableBody = ({ orders }: IOrderHistoryTableBodyProps) => {
+export const OrderHistoryTableBody = ({
+  orders,
+}: IOrderHistoryTableBodyProps) => {
   return (
     <TableBody>
       {orders?.map((order) =>
@@ -34,18 +36,20 @@ export const OrderHistoryTableBody = ({ orders }: IOrderHistoryTableBodyProps) =
             <TableCell>{product.quantity}</TableCell>
             <TableCell>${product.id.price * product.quantity}</TableCell>
             <TableCell>
-              <span className={`px-2 py-1 rounded-full text-xs ${
-                order.status === 'pending' 
-                  ? 'bg-yellow-100 text-yellow-800'
-                  : order.status === 'completed'
-                  ? 'bg-green-100 text-green-800'
-                  : 'bg-red-100 text-red-800'
-              }`}>
+              <span
+                className={`px-2 py-1 rounded-full text-xs ${
+                  order.status === "pending"
+                    ? "bg-yellow-100 text-yellow-800"
+                    : order.status === "completed"
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800"
+                }`}
+              >
                 {order.status}
               </span>
             </TableCell>
             <TableCell>
-              {format(new Date(order.createdAt), 'MMM dd, yyyy')}
+              {format(new Date(order.createdAt), "MMM dd, yyyy")}
             </TableCell>
           </TableRow>
         ))

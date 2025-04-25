@@ -3,13 +3,16 @@
 import { useState } from "react";
 import { CheckIcon, CreditCardIcon, FileTextIcon } from "lucide-react";
 import { CheckOutForm } from "@/components/forms/checkout-form";
-import { useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { CartProduct } from "@/components/cards/cart-product-item";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCreateOrderMutation } from "@/redux/api/orders.api";
 import { toast } from "sonner";
+import { IOrderRequest } from "@/types/redux/orders";
+import { clearCart } from "@/redux/features/cart.slice"; // Add this import
+import { OrderSuccessModal } from "@/components/modals/order-success-modal";
 
 const checkoutFormSchema = z.object({
   address: z
@@ -52,7 +55,9 @@ const formFields = [
 ] as const;
 
 export default function CheckoutForm() {
+  const dispatch = useAppDispatch(); // Add this
   const cartedProducts = useAppSelector((state) => state.cart.items);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   // RTK: create order and payment
   const [createOrder, { isLoading }] = useCreateOrderMutation();
@@ -76,9 +81,6 @@ export default function CheckoutForm() {
 
   const onSubmit = async (data: CheckoutFormData) => {
     try {
-      console.log("Form submitted:", data);
-      // Add your API call here
-
       const orderData: IOrderRequest = {
         address: data.address,
         contact: data.phone,
@@ -88,19 +90,21 @@ export default function CheckoutForm() {
         })),
       };
 
-      console.log("orderData", orderData);
-
       const response = await createOrder(orderData);
 
       if (!response.data?.success) {
-        // toast.error(response.data?.message);
         throw new Error(response.data?.message);
       }
+      
+      // Clear cart after successful order
+      dispatch(clearCart());
       toast.success(response.data?.message);
-
-      // reset();
+      reset();
+      setShowSuccessModal(true); // Show success modal
+      
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Failed to create order");
     }
   };
 
@@ -204,6 +208,11 @@ export default function CheckoutForm() {
           </div>
         </div>
       </form>
+
+      <OrderSuccessModal 
+        open={showSuccessModal} 
+        onOpenChange={setShowSuccessModal}
+      />
     </div>
   );
 }

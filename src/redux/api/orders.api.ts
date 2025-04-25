@@ -12,7 +12,7 @@ const ordersApi = fetchquestBaseApi.injectEndpoints({
         body: orderBody,
       }),
     }),
-    getMyOrders: builder.query<IResponse<IOrderResponse>, undefined>({
+    getMyOrders: builder.query({
       query: () => ({
         url: "/orders/my-orders",
         method: "GET",

@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  Table,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { OrderHistoryTableBody } from "@/components/tables/order-history-table-body";
 import { useGetMyOrderHistory } from "@/hooks/rtk-queries/useGetMyOrders";
+import { IOrderResponse } from "@/types/redux/orders";
 
 export default function OrderHistory() {
   const { orders, myOrderPending } = useGetMyOrderHistory();
