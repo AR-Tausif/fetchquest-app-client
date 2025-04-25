@@ -16,7 +16,10 @@ export const ProfileSidebarHeaderCard = () => {
       ) : (
         <div className="flex items-center gap-3">
           <Image
-            src={data?.data?.image || "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"}
+            src={
+              data?.data?.image ||
+              "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
+            }
             alt="Profile"
             width={50}
             height={50}

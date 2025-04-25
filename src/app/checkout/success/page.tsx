@@ -8,7 +8,7 @@ const SuccessPage = () => {
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <Confetti width={width} height={height} />
+        <Confetti width={width} height={height} />
         <div className="bg-white p-8 rounded-lg shadow-md text-center">
           <div className="mb-4">
             <svg

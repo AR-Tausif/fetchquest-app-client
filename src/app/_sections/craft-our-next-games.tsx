@@ -10,7 +10,6 @@ import {
 } from "@/components/carousle/embla/embla-carousel-arrow-buttons";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
-import { nextCardGameSlides } from "@/assets/game-data";
 import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
 
 export const CraftOurNextGames = () => {

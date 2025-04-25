@@ -21,9 +21,9 @@ export default function OrderHistory() {
           <TableRow>
             <TableHead>Product</TableHead>
             <TableHead>Details</TableHead>
-            <TableHead>Price</TableHead>
+            <TableHead>Product Price</TableHead>
             <TableHead>Quantity</TableHead>
-            <TableHead>Total</TableHead>
+            <TableHead>Total Price</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Date</TableHead>
           </TableRow>

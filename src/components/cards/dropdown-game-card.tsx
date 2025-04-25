@@ -1,7 +1,10 @@
 import { IMappedGameSlide } from "@/hooks/rtk-queries/useGetAllGames";
-import { IBlog } from "@/types/redux/blogs";
 import { ArrowUpRight } from "lucide-react";
-export const DropdownGameCard = ({ gameContent }: { gameContent: IMappedGameSlide }) => {
+export const DropdownGameCard = ({
+  gameContent,
+}: {
+  gameContent: IMappedGameSlide;
+}) => {
   console.log("gameContent", gameContent);
   return (
     <div
@@ -18,7 +21,9 @@ export const DropdownGameCard = ({ gameContent }: { gameContent: IMappedGameSlid
           </p>
         </div>
         <div className="p-4 w-full flex justify-end px-11 gap-x-2 bg-[#00000099] backdrop-blur-xl rounded-b-lg">
-          <p>Visit Site </p>
+          <a href={gameContent?.site} target="_blank">
+            <p>Visit Site </p>
+          </a>
           <ArrowUpRight />
         </div>
       </div>

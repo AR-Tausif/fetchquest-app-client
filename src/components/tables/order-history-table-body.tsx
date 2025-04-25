@@ -34,7 +34,7 @@ export const OrderHistoryTableBody = ({
             </TableCell>
             <TableCell>${product.id.price}</TableCell>
             <TableCell>{product.quantity}</TableCell>
-            <TableCell>${product.id.price * product.quantity}</TableCell>
+            <TableCell>${order.total_amount}</TableCell>
             <TableCell>
               <span
                 className={`px-2 py-1 rounded-full text-xs ${

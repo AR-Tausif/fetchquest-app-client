@@ -4,6 +4,7 @@ import { Delete, Loader, Minus, Plus, Trash, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 import { useState } from "react";
+import { AppButton } from "../buttons/app-button";
 
 interface Props {
   id: string;
@@ -50,18 +51,18 @@ export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
         <h3 className="text-sm font-medium">{name}</h3>
 
         <div className="flex items-center gap-2 mt-2">
-          <button
+          <AppButton
             onClick={decreaseQuantity}
-            className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center"
+            className="w-8 h-8 rounded-full flex items-center justify-center"
           >
             <Minus size={16} />
-          </button>
+          </AppButton>
 
           <span className="w-6 text-center">{quantity}</span>
 
           <button
             onClick={increaseQuantity}
-            className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center"
+            className="w-8 h-8 rounded-full flex items-center justify-center"
           >
             {/* {increaseLoading ? (
               <Loader className="animate-spin h-4 w-4" />

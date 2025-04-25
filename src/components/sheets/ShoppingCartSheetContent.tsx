@@ -6,6 +6,7 @@ import { SheetContent, SheetTitle } from "../ui/sheet";
 import { useAppSelector } from "@/redux/hooks";
 import { CartProduct } from "../cards/cart-product-item";
 import Link from "next/link";
+import { AppButton } from "../buttons/app-button";
 
 export const ShoppingCartSheetContent = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -58,9 +59,9 @@ export const ShoppingCartSheetContent = () => {
           </div>
 
           <Link href="/checkout">
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium py-3 px-8 rounded-md transition-colors">
+            <AppButton className="text-gray-900 font-medium py-3 px-8 rounded-md transition-colors">
               Checkout
-            </button>
+            </AppButton>
           </Link>
         </div>
       </div>
