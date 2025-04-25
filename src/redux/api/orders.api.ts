@@ -3,9 +3,15 @@ import { fetchquestBaseApi } from ".";
 import { IOrderRequest, IOrderResponse } from "@/types/redux/orders";
 import { tagTypes } from "../tag.types";
 
+export interface IOrderCreateResponse {
+  success: boolean;
+  message: string;
+  data: string;
+}
+
 const ordersApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
-    createOrder: builder.mutation<IResponse<IOrderResponse>, IOrderRequest>({
+    createOrder: builder.mutation<IOrderCreateResponse, IOrderRequest>({
       query: (orderBody) => ({
         url: "/orders",
         method: "POST",

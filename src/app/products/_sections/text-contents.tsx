@@ -166,7 +166,7 @@ export const TextContents = ({ product }: { product: IProduct }) => {
           </a>
         </div> */}
         <p className="text-2xl font-extrabold text-[#DA5DA3] sm:text-3xl dark:text-white">
-          $1,249.99
+          ${product.price}
         </p>
         {/* <p className="text-sm">Tax Included</p> */}
 

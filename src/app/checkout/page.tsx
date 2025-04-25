@@ -13,6 +13,8 @@ import { toast } from "sonner";
 import { IOrderRequest } from "@/types/redux/orders";
 import { clearCart } from "@/redux/features/cart.slice"; // Add this import
 import { OrderSuccessModal } from "@/components/modals/order-success-modal";
+import { useRouter } from "next/navigation";
+import CheckoutProduct from "@/components/cards/checkout-product";
 
 const checkoutFormSchema = z.object({
   address: z
@@ -63,6 +65,8 @@ export default function CheckoutForm() {
   const [createOrder, { isLoading }] = useCreateOrderMutation();
   // const [isLoading, setIsLoading] = useState(false);
 
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -95,13 +99,13 @@ export default function CheckoutForm() {
       if (!response.data?.success) {
         throw new Error(response.data?.message);
       }
-      
+
       // Clear cart after successful order
       dispatch(clearCart());
       toast.success(response.data?.message);
       reset();
-      setShowSuccessModal(true); // Show success modal
-      
+      router.push(response.data.data);
+      // setShowSuccessModal(true); // Show success modal
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Failed to create order");
@@ -110,6 +114,11 @@ export default function CheckoutForm() {
 
   const totalProductsPrice = cartedProducts.reduce(
     (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+  const totalProductsItem = cartedProducts.reduce(
+    (total, item) => total + item.quantity,
     0
   );
   return (
@@ -162,18 +171,20 @@ export default function CheckoutForm() {
           />
 
           <div className="my-20">
-            {cartedProducts.map((item) => {
-              return (
-                <CartProduct
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
-                  imageUrl={item.imageUrl}
-                />
-              );
-            })}
+            <div className="max-full mx-auto bg-white p-6 rounded shadow-sm">
+              <h1 className="text-xl font-medium text-gray-800">
+                Shopping Cart
+              </h1>
+              <p className="text-gray-500 text-sm mt-1 mb-4">
+                You have {totalProductsItem} items in your cart
+              </p>
+
+              <div className="border-t border-gray-200 pt-4">
+                {cartedProducts.map((item) => {
+                  return <CheckoutProduct key={item.id} product={item} />;
+                })}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -209,10 +220,10 @@ export default function CheckoutForm() {
         </div>
       </form>
 
-      <OrderSuccessModal 
+      {/* <OrderSuccessModal 
         open={showSuccessModal} 
         onOpenChange={setShowSuccessModal}
-      />
+      /> */}
     </div>
   );
 }

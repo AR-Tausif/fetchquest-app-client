@@ -11,7 +11,6 @@ export interface IMappedGameSlide {
   site: string;
 }
 
-
 export const useGetAllGames = () => {
   const { data, isLoading } = useGetGamesQuery(undefined);
   const gameSlideData = data?.data?.data.map((game) => ({
@@ -19,7 +18,7 @@ export const useGetAllGames = () => {
     posterImg: game.image || "/images/posters/poster-6.jpg",
     gameName: game.name || "Introductiong check6 extraction dlc",
     date: game?.createdAt ? getLocalDate(game.createdAt) : "N/A",
-    site: "Visit Site",
+    site: game?.link,
   }));
 
   if (!gameSlideData) return { gameSlide: [], isGamePending: isLoading };

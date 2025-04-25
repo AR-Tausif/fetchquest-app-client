@@ -35,8 +35,8 @@ export const ShoppingCartSheetContent = () => {
 
       <div className="overflow-y-auto">
         <div className="p-4">
-          <p className="text-gray-700 font-bold tracking-tighter my-4 text-center">
-            Cart Items - {totalProductsItem}
+          <p className="text-gray-700 tracking-tighter my-4 text-center">
+            Cart Items  {totalProductsItem}
           </p>
           {cartItems.map((item) => (
             <CartProduct
@@ -54,7 +54,7 @@ export const ShoppingCartSheetContent = () => {
       <div className="border-t p-4 mt-20">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <p className="font-semibold">£{totalProductsPrice.toFixed(2)}</p>
+            <p className="font-semibold">${totalProductsPrice.toFixed(2)}</p>
           </div>
 
           <Link href="/checkout">

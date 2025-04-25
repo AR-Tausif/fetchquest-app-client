@@ -72,7 +72,7 @@ export const CartProduct = ({ id, name, price, quantity, imageUrl }: Props) => {
 
           <div className="ml-auto flex items-center gap-3">
             <span className="font-semibold">
-              £{(price * quantity).toFixed(2)}
+              ${(price * quantity).toFixed(2)}
             </span>
             <button onClick={handleRemove} className="text-gray-500">
               <Trash2 className="text-red-500" size={16} />
