@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Toaster } from "sonner";
+import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,11 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <main className="w-screen overflow-hidden">
-          <Navbar />
-          {children}
-          <Footer />
-        </main>
+        <Toaster position="top-center" richColors />
+        <Providers>
+          <main className="w-screen overflow-hidden">
+            <Navbar />
+            {children}
+            <Footer />
+          </main>
+        </Providers>
       </body>
     </html>
   );

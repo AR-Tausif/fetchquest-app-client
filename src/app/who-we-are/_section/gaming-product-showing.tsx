@@ -1,4 +1,4 @@
-import { GameItemBox } from "@/components/boxes";
+
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { HorizontalAccordion } from "./horizontal-accordio";
 

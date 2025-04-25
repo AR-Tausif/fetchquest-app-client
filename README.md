@@ -1,69 +1,102 @@
-# Game Showcase Website ( FETCH QUEST ) - Frontend
+# FetchQuest - Gaming Marketplace & Community Platform
 
-This repository contains the frontend part of the School Management Fees System, a web application designed for managing school fees. The front-end is built using Next.js, TailwindCSS, Shadcnui, React-PDF, Redux, and React Query.
+FetchQuest is a modern gaming marketplace and community platform built with Next.js, offering a seamless experience for gamers to discover, purchase, and engage with gaming products and content.
 
-![image](https://github.com/user-attachments/assets/e761febd-f118-4945-ba41-a6935368298b)
+![FetchQuest Hero Section](public/images/containers-bg/hero-bg.png)
 
-![image](https://github.com/user-attachments/assets/cd12a400-f4b7-40df-96cf-a92a92592f09)
-
-## Login Credentials
-
-Use the following credentials for testing the application:
-
-- **Super Admin Account**
-  - Email: `abc@gmail.com`
-  - Password: `EDUCA-admin-12`
-
-- **Admin Account**
-  - Email: `admin@gmail.com`
-  - Password: `123456`
- 
 ## Features
 
-- **Student Creation**: Easily add new students to the system.
-- **User Management**: Users can create accounts. An account becomes an admin account once approved by a super-admin.
-- **Fees Management**: Track due fees for each student.
-- **Payment Receipts**: Generate and download PDF receipts for payments.
-- **Student Details**: View detailed information about each student.
-- **Payment Summary**: View total payments received from all students.
+- **Game Marketplace**: Browse and purchase gaming products
+- **User Authentication**: Secure login/signup system
+- **Shopping Cart**: Add products and manage your cart
+- **Order Management**: Track your order history
+- **Profile Management**: Edit and manage your user profile
+- **Responsive Design**: Fully responsive across all devices
+- **Community Section**: Engage with other gamers
+- **News Section**: Stay updated with latest gaming news
 
-## Technologies Used
+## Tech Stack
 
-- **Next.js**: A React framework for building fast and user-friendly web applications.
-- **TailwindCSS**: A utility-first CSS framework for styling the application.
-- **Shadcnui**: A component library for building responsive user interfaces.
-- **React-PDF**: A library for generating PDF documents in the browser.
-- **Redux**: A state management library for managing application state.
-- **React Query**: A library for fetching, caching, and updating server data.
-
-## Backend Codebase
-
-The backend for the **Educa School Fees Management System** is built using **Node.js**, **Express**, **MongoDB**, and **Mongoose** for the database layer. It includes features like custom authentication, schema validation with Zod, and secure JWT-based authorization.
-
-You can find the backend codebase here:
-**[Educa School Fees Management System - Backend](https://github.com/AR-Tausif/educa-backend)**
+- **Frontend Framework**: Next.js 14
+- **Styling**: TailwindCSS, CSS Modules
+- **State Management**: Redux Toolkit, RTK Query
+- **Authentication**: JWT with HTTP-only cookies
+- **UI Components**: Shadcn UI
+- **Form Handling**: React Hook Form, Zod
+- **Animations**: Embla Carousel
+- **Toast Notifications**: Sonner
 
 ## Getting Started
 
 ### Prerequisites
-
-- Node.js
-- npm (or yarn)
-- TypeScript
+- Node.js (v18 or higher)
+- npm or yarn
 
 ### Installation
 
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/AR-Tausif/educa-website.git
-   cd educa-website
+```bash
+git clone https://github.com/your-username/fetchquest-app-client.git
+cd fetchquest-app-client
 
-2. Installs dep:
-   ```sh
-   npm install
+2. Install dependencies:
+```bash
+npm install
+ ```
 
-3. Start the development server:
-   ```sh
-   npm run dev
+3. Create a .env.local file in the root directory and add necessary environment variables:
+```env
+NEXT_PUBLIC_API_URL=your_api_url
+ ```
 
+4. Start the development server:
+```bash
+npm run dev
+ ```
 
+The application will be available at http://localhost:3000
+
+## Project Structure
+```plaintext
+fetchquest-app-client/
+├── src/
+│   ├── app/             # Next.js app directory
+│   ├── components/      # Reusable components
+│   ├── hooks/          # Custom React hooks
+│   ├── redux/          # Redux store and slices
+│   ├── types/          # TypeScript types/interfaces
+│   └── utils/          # Utility functions
+├── public/             # Static assets
+└── ...config files
+ ```
+```
+
+## Features in Detail
+### Authentication
+- Login/Signup system
+- OTP verification
+- Protected routes
+- Token-based authentication
+### Shopping Experience
+- Product browsing
+- Cart management
+- Checkout process
+- Order history
+### User Profile
+- Profile management
+- Order tracking
+- Account settings
+## Contributing
+1. Fork the repository
+2. Create your feature branch ( git checkout -b feature/AmazingFeature )
+3. Commit your changes ( git commit -m 'Add some AmazingFeature' )
+4. Push to the branch ( git push origin feature/AmazingFeature )
+5. Open a Pull Request
+## License
+This project is licensed under the MIT License - see the LICENSE file for details
+
+```plaintext
+
+This README provides a comprehensive overview of the FetchQuest project, including its features, tech stack, setup instructions, and project structure. Let me know if you'd like me to add or modify any sections!
+ ```
+```

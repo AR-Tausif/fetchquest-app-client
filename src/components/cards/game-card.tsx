@@ -20,7 +20,7 @@ export const GameCard = ({ content }: IGameCardProps) => {
         </p>
     </div>
       <div className="p-4 w-full flex justify-end px-11 gap-x-2 bg-[#00000099] backdrop-blur-xl rounded-b-lg">
-        <a href="https://github.com" target="_blank">
+        <a href={site} target="_blank">
         <p>Visit Site </p></a>
         <ArrowUpRight />
       </div>

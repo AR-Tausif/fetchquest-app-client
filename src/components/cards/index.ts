@@ -8,3 +8,4 @@ export * from "./blog-news-card";
 export * from "./pagination-card";
 export * from "./horizontal-acc-last-item-content";
 export * from "./horizontal-acc-first-item-card";
+export * from "./checkout-product";

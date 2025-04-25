@@ -36,9 +36,9 @@ export const Footer = () => {
       title: "LEGAL",
       links: [
         { href: "/", label: "Code" },
-        { href: "/", label: "Privacy" },
-        { href: "/", label: "Term Of Use" },
-        { href: "/", label: "Customer Support" },
+        { href: "/privacy-policy", label: "Privacy" },
+        { href: "/terms-of-user", label: "Term Of Use" },
+        { href: "/customer-support", label: "Customer Support" },
       ],
     },
     {
@@ -52,9 +52,9 @@ export const Footer = () => {
     {
       title: "COMPANY",
       links: [
-        { href: "/", label: "About" },
-        { href: "/", label: "Careers" },
-        { href: "/", label: "Support" },
+        { href: "/about-us", label: "About us" },
+        { href: "/", label: "Terms and conditions" },
+        { href: "/customer-support", label: "Support" },
       ],
     },
   ];

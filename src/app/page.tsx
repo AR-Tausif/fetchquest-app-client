@@ -1,24 +1,25 @@
-'use client';
+"use client";
 
-import Head from 'next/head';
-import * as React from 'react';
-import "./page.css"
-import { OurGameSection } from '@/app/_sections/our-game';
-import { NewsSection } from '@/app/_sections/news-section';
-import { CraftOurNextGames } from '@/app/_sections/craft-our-next-games';
-import { AboutUs } from '@/app/_sections/about-us';
-import { OurFact } from '@/app/_sections/our-fact';
-import { UserFeedback } from '@/app/_sections/user-feedback';
-import { CommunityBlogSection } from '@/app/_sections/community-blog-section';
-import { FooterTopSection } from '@/app/_sections/footer-top-section';
-
-
+import Head from "next/head";
+import * as React from "react";
+import "./page.css";
+import { OurGameSection } from "@/app/_sections/our-game";
+import { NewsSection } from "@/app/_sections/news-section";
+import { CraftOurNextGames } from "@/app/_sections/craft-our-next-games";
+import { AboutUs } from "@/app/_sections/about-us";
+import { OurFact } from "@/app/_sections/our-fact";
+import { UserFeedback } from "@/app/_sections/user-feedback";
+import { CommunityBlogSection } from "@/app/_sections/community-blog-section";
+import { FooterTopSection } from "@/app/_sections/footer-top-section";
+import { useSelector } from "react-redux";
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
 export default function HomePage() {
+  const token = useSelector((state: any) => state.auth.token);
+  console.log({ tokenHome: token });
   return (
     <main>
       <Head>

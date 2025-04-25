@@ -2,18 +2,22 @@
 import {
   BlogInnerCard,
   BlogNewsCard,
-  NewsBlogCard,
-  PaginationCard,
 } from "@/components/cards";
 import { Container } from "@/components/container";
 import { BlogHeroSection } from "./_sections/hero-section";
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { NewsSearchInput, NewsSelectInput } from "@/components/forms";
+import { useGetAllBlogs } from "@/hooks/rtk-queries/useGetAllBlogs";
+import { useState } from "react";
 
 const BlogPage = () => {
-  const handleOnblur = (e: InputEvent) => {
-    console.log("blur", e);
+  const [searchTerm, setSearchTerm] = useState("");
+  const { blogs } = useGetAllBlogs({ searchTerm });
+
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
   };
+
   return (
     <div className="relative">
       <BlogHeroSection />
@@ -21,7 +25,7 @@ const BlogPage = () => {
         <section className="py-10 space-y-6 relative">
           <div className="flex justify-between items-center">
             <SectionHeading title="News Archive" className="" />
-            <NewsSearchInput handleOnblur={handleOnblur} />
+            <NewsSearchInput handleOnblur={handleSearch} />
           </div>
           {/* second edition */}
           <div className="flex justify-between gap-x-6 items-center">
@@ -34,21 +38,22 @@ const BlogPage = () => {
                 Alliance Wizards of the coast
               </p>
             </div>
-            <div className="">
-              <NewsSelectInput />
-            </div>
+            <div className="">{/* <NewsSelectInput /> */}</div>
           </div>
 
           {/* all blog posts */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-            <BlogNewsCard />
+            {blogs?.map((blog) => (
+              <BlogNewsCard key={blog._id} blog={blog} />
+            ))}
+            {/* <BlogNewsCard />
 
             <BlogNewsCard />
 
-            <BlogNewsCard />
+            <BlogNewsCard /> */}
           </div>
           {/* pagination */}
-          <PaginationCard />
+          {/* <PaginationCard /> */}
         </section>
       </Container>
     </div>

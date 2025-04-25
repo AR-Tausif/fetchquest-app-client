@@ -11,6 +11,7 @@ export const AppButton = ({
   variant?: "primary" | "outline" | "secondary" | "gradient-border";
   onClick?: () => void;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }) => {
   let buttonStyles = "";
 

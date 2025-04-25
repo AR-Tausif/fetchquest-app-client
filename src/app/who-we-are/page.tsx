@@ -37,7 +37,7 @@ const WhoWeAre = () => {
   return (
     <div className="overflow-hidden">
       {/* header hero section */}
-      <div className="w-screen min-h-[40vh] bg-no-repeat  bg-cover bg-center">
+       <div className="w-screen min-h-[40vh] bg-no-repeat  bg-cover bg-center">
         <VideoEmbed />
       </div>
 
@@ -46,14 +46,15 @@ const WhoWeAre = () => {
           <SectionHeading
             className="text-white"
             title="where making a differece"
-          />
+            />
           <HorizontalImageGallery gellaryContent={gellaryContent} />
         </div>
       </div>
-
-      <GamingProductShowing />
-      <GamerOverviewSection />
-      <OurStudios />
+ 
+      <GamingProductShowing />  
+ 
+      <GamerOverviewSection />  
+      <OurStudios />  
       <OurFact />
     </div>
   );

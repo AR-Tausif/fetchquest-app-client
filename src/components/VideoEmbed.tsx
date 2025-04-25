@@ -1,5 +1,11 @@
-const dummyImg = "/images/containers-bg/work-station-bg.png"
-export const VideoEmbed = ({ className, placeholderImage=dummyImg }: { className?: string; placeholderImage?:string }) => {
+const dummyImg = "/images/containers-bg/work-station-bg.png";
+export const VideoEmbed = ({
+  className,
+  placeholderImage = dummyImg,
+}: {
+  className?: string;
+  placeholderImage?: string;
+}) => {
   const iframeSrcdoc = `
     <style>
       * {
@@ -45,7 +51,7 @@ export const VideoEmbed = ({ className, placeholderImage=dummyImg }: { className
       className={className}
       style={{
         width: "100%",
-        height:"100%",
+        height: "100%",
         // maxWidth: "550px",
         boxShadow: "6px 6px 10px hsl(206.5, 0%, 75%)",
       }}
