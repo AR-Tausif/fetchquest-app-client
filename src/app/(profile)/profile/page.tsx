@@ -103,14 +103,14 @@ export default function ProfilePage() {
                   Phone number
                 </h3>
                 <div className="flex items-center gap-2">
-                  <span className="inline-block w-6">
+                  {/* <span className="inline-block w-6">
                     <Image
                       src={USFlagImg}
                       alt="US Flag"
                       width={24}
                       height={16}
                     />
-                  </span>
+                  </span> */}
                   <p className="text-gray-900">{myProfile?.data?.contact}</p>
                 </div>
               </div>

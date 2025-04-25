@@ -1,14 +1,14 @@
 export const SingleProductSekeleton = () => {
   return (
-    <section className="min-h-screen bg-white dark:bg-gray-900">
+    <section className="min-h-screen bg-white dark:bg-gray-900 my-20">
       {/* Banner Skeleton */}
-      <div className="h-[40vh] w-screen flex items-center justify-center bg-gray-300 animate-pulse">
+      {/* <div className="h-[40vh] w-screen flex items-center justify-center bg-gray-300 animate-pulse">
         <h4 className="uppercase text-[10vw] lg:text-[3vw] font-semibold text-gray-400">
           LOADING...
         </h4>
-      </div>
+      </div> */}
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row gap-10">
+      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col lg:flex-row gap-10">
         {/* Left Gallery & Card */}
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Image thumbnails */}

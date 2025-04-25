@@ -29,7 +29,7 @@ export interface IOrderResponse {
   isPaid: boolean;
   isDeleted: boolean;
   tranId: string;
-  status: "pending" | "completed" | "cancelled";
+  status: "pending" | "complete" | "cancelled";
   createdAt: string;
   updatedAt: string;
   __v: number;

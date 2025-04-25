@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { format } from "date-fns";
 import { IOrderResponse } from "@/types/redux/orders";
+import toTitleCase from "@/lib/toTitleCase";
 
 interface IOrderHistoryTableBodyProps {
   orders: IOrderResponse[];
@@ -40,12 +41,12 @@ export const OrderHistoryTableBody = ({
                 className={`px-2 py-1 rounded-full text-xs ${
                   order.status === "pending"
                     ? "bg-yellow-100 text-yellow-800"
-                    : order.status === "completed"
+                    : order.status === "complete"
                     ? "bg-green-100 text-green-800"
                     : "bg-red-100 text-red-800"
                 }`}
               >
-                {order.status}
+                {toTitleCase(order.status)}
               </span>
             </TableCell>
             <TableCell>

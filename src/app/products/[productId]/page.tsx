@@ -2,20 +2,11 @@
 
 import { SectionHeading } from "@/components/top-headings/SectionHeading";
 import { ProductDescription } from "../_sections/product-description";
-import { ProductInformation } from "../_sections/product-information";
-import { ProductReview } from "../_sections/product-review";
 import { ProductDetails } from "../_sections/product-details";
 import { Container } from "@/components/container";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useGetSingleProduct } from "@/hooks/rtk-queries/useGetSingleProduct";
-import { useIsAuthenticated } from "@/hooks/useIsAuthenticated";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { AppButton } from "@/components/buttons/app-button";
+
 import { IProduct } from "@/types/redux/products";
 import { SingleProductSekeleton } from "@/components/skeleton/single-product-skeleton";
 
@@ -26,7 +17,7 @@ interface PageProps {
 }
 
 export default function ProductPage({ params }: PageProps) {
-//   const { isAuthenticated } = useIsAuthenticated();
+  //   const { isAuthenticated } = useIsAuthenticated();
   const { product, isProductPending } = useGetSingleProduct(params.productId);
   const tabsItems = [
     {
@@ -47,17 +38,13 @@ export default function ProductPage({ params }: PageProps) {
   ];
   return (
     <>
+      <div className="h-[30vh] w-screen flex items-center justify-center bg-[url(/images/banners/profile-banner-img.png)] bg-no-repeat bg-center  bg-cover">
+        <SectionHeading title={"PREMIUM EQUIPMENT"} className="text-center" />
+      </div>
       {isProductPending ? (
         <SingleProductSekeleton />
       ) : (
         <div>
-          <div className="h-[30vh] w-screen flex items-center justify-center bg-[url(/images/banners/profile-banner-img.png)] bg-no-repeat bg-center  bg-cover">
-            <SectionHeading
-              title={"PREMIUM EQUIPMENT"}
-              className="text-center"
-            />
-          </div>
-
           {/* content section */}
 
           <div className="">
