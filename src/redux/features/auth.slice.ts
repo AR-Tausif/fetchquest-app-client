@@ -30,7 +30,9 @@ const authSlice = createSlice({
         expires: 7, // 7 days
         path: "/",  // Available across all paths
         sameSite: "lax", // Less strict than 'strict' for better compatibility
-        secure: process.env.NODE_ENV === "production" // Only use HTTPS in production
+        // TODO: Set secure to true in production
+        secure: false, // process.env.NODE_ENV === "production" // Only use HTTPS in production
+        httpOnly: false, // Accessible only through HTTP(S)
       });
     },
     logOut: (state) => {
