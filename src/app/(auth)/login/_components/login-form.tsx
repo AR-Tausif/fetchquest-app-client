@@ -76,10 +76,11 @@ export default function LoginForm() {
 
       // Store user data in Redux store (which will also set the cookie)
       dispatch(setUser({ user, token: accessToken }));
-      
-
-      toast.success(response.message || "Successfully logged in");
-      window.location.href = "/";
+      if (response.success) {
+        toast.success(response.message || "Successfully logged in");
+        router.push("/");
+        // window.location.reload(); // Reload the page to update the ap
+      }
     } catch (error: any) {
       // Handle different error types
       if (error.status === 401) {
@@ -91,8 +92,6 @@ export default function LoginForm() {
       }
     }
   };
-
-  
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 

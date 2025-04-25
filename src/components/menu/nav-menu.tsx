@@ -204,7 +204,6 @@ const ShoppingCartArea = () => {
 
 import Cookies from "js-cookie";
 import { setUser } from "@/redux/features/auth.slice";
-import { IBlog } from "@/types/redux/blogs";
 import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
 import { Sheet, SheetTrigger } from "../ui/sheet";
 import { ShoppingCartSheetContent } from "../sheets";
@@ -218,8 +217,11 @@ const UserAccountLink = () => {
   const handleLogout = () => {
     dispatch(setUser({ user: null, token: null }));
     Cookies.remove("auth");
+
+    router.push("/login");
+
     // router.push("/login");
-    window.location.href = "/login";
+    // window.location.href = "/login";
   };
 
   if (myProfileLoading) {
@@ -255,10 +257,7 @@ const UserAccountLink = () => {
           <DropdownMenuTrigger asChild>
             <div className={`${FONT_SIZE} flex gap-x-2 ${HOVER_STYLE}`}>
               <Image
-                src={
-                  myProfile?.data?.image ||
-                  "https://m.gettywallpapers.com/wp-content/uploads/2023/09/Itachi-Uchiha-Pfp-for-Profile-Picture.jpg"
-                }
+                src={myProfile?.data?.image!}
                 alt="user account image"
                 className="rounded-full"
                 width={32}

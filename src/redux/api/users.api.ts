@@ -9,7 +9,7 @@ const usersApi = fetchquestBaseApi.injectEndpoints({
         url: "/users/my-profile",
         method: "GET",
       }),
-      providesTags: [tagTypes.user],
+      providesTags: [tagTypes.user, tagTypes.auth],
     }),
 
     editProfile: builder.mutation<IResponse<IMyProfile>, FormData>({
@@ -18,7 +18,7 @@ const usersApi = fetchquestBaseApi.injectEndpoints({
         method: "PATCH",
         body: editFormBody,
       }),
-      invalidatesTags: [tagTypes.user],
+      invalidatesTags: [tagTypes.user, tagTypes.auth],
     }),
   }),
 });

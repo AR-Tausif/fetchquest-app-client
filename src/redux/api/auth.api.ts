@@ -7,6 +7,7 @@ import {
 } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
 import { store } from "../store";
+import { tagTypes } from "../tag.types";
 
 const authApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -16,6 +17,7 @@ const authApi = fetchquestBaseApi.injectEndpoints({
         method: "POST",
         body: userInfo,
       }),
+      invalidatesTags: [tagTypes.user, tagTypes.auth]
     }),
     register: builder.mutation<IResponse<IAuthResponseData>, IRegisterInfo>({
       query: (userInfo: IRegisterInfo) => ({
@@ -23,6 +25,7 @@ const authApi = fetchquestBaseApi.injectEndpoints({
         method: "POST",
         body: userInfo,
       }),
+      invalidatesTags: [tagTypes.user, tagTypes.auth]
     }),
     verifyOtp: builder.mutation<IResponse<IAuthResponseData>, IVerifyOTP>({
       query: (otp: IVerifyOTP) => {
@@ -36,6 +39,7 @@ const authApi = fetchquestBaseApi.injectEndpoints({
           },
         };
       },
+      invalidatesTags: [tagTypes.user, tagTypes.auth]
     }),
   }),
 });
