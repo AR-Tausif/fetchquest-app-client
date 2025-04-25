@@ -59,7 +59,7 @@ export function NavigationMenuDemo() {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
-    <NavigationMenu className="flex justify-between lg:justify-center lg:gap-x-[20vw] py-1">
+    <NavigationMenu className="flex justify-between lg:justify-center lg:gap-x-[20vw] py-1 w-full">
       {/* Left side navigation */}
       <NavigationMenuList>
         {/* Logo */}
@@ -149,7 +149,7 @@ const GamesDropdownContent = ({
 }) => {
   const { gameSlide } = useGetAllGames();
   return (
-    <div className="w-screen ps-20 pe-8">
+    <div className="w-screen min-w-[100vw] ps-20 pe-8">
       <div className="flex justify-center my-4">
         <img
           src="/images/our-games-dropdown.png"
@@ -158,15 +158,17 @@ const GamesDropdownContent = ({
         />
       </div>
       <p className="text-white">Up Coming Games</p>
-      <EmblaCarousel emblaRef={emblaRef}>
-        <div className="embla__container my-4 mx-14">
-          {gameSlide.map((game) => (
-            <div className="embla__slide" key={game.id}>
-              <DropdownGameCard gameContent={game} />
-            </div>
-          ))}
-        </div>
-      </EmblaCarousel>
+      <div className="max-w-[90vw] mx-auto">
+        <EmblaCarousel emblaRef={emblaRef}>
+          <div className="embla__container my-4 mx-14">
+            {gameSlide.map((game) => (
+              <div className="embla__slide min-w-[400px]" key={game.id}>
+                <DropdownGameCard gameContent={game} />
+              </div>
+            ))}
+          </div>
+        </EmblaCarousel>
+      </div>
     </div>
   );
 };

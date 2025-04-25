@@ -9,8 +9,13 @@ import { useGetBlogsQuery } from "@/redux/api/blogs";
 //   date: string;
 //   site: string;
 // }
-export const useGetAllBlogs = () => {
-  const { data, isLoading } = useGetBlogsQuery(undefined);
+export const useGetAllBlogs = (props?: { searchTerm?: string }) => {
+  const { data, isLoading } = useGetBlogsQuery({
+    params: {
+      searchTerm: props?.searchTerm || "",
+    }
+  });
+
   const blogsSlideData = data?.data?.data.map((blog) => ({
     id: blog._id,
     posterImg: blog.image || "/images/posters/poster-15.png",

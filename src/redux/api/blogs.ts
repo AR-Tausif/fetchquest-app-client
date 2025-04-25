@@ -5,10 +5,14 @@ import { IBlog, IBlogResponse } from "@/types/redux/blogs";
 
 const blogsApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getBlogs: builder.query<IResponse<IBlogResponse>, undefined>({
-      query: () => ({
+    getBlogs: builder.query<
+      IResponse<IBlogResponse>,
+      { params: { searchTerm: string | undefined } }
+    >({
+      query: ({ params } = { params: { searchTerm: undefined } }) => ({
         url: "/blogs",
         method: "GET",
+        params,
       }),
       providesTags: [tagTypes.blog],
     }),
