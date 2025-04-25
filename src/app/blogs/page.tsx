@@ -2,8 +2,6 @@
 import {
   BlogInnerCard,
   BlogNewsCard,
-  NewsBlogCard,
-  PaginationCard,
 } from "@/components/cards";
 import { Container } from "@/components/container";
 import { BlogHeroSection } from "./_sections/hero-section";

@@ -6,6 +6,7 @@ import { useGetSingleBlogQuery } from "@/redux/api/blogs";
 import { getLocalDate } from "@/utils/localDate";
 import { AtSign, CalendarDays, Tag } from "lucide-react";
 import React from "react";
+import { SingleBlogHero } from "./single-blog-hero";
 
 export default function SingleBlogDetails({ blogId }: { blogId: string }) {
   const { data, isLoading } = useGetSingleBlogQuery({ blog: blogId });
@@ -18,7 +19,7 @@ export default function SingleBlogDetails({ blogId }: { blogId: string }) {
       ) : (
         <div className="space-y-6 px-4">
           <div className="p-0 md:px-8 w-full">
-            <VideoEmbed placeholderImage={data?.data.image} />
+            <SingleBlogHero placeholderImage={data?.data.image} />
           </div>
 
           <div className="space-y-10 flex flex-col justify-center items-center pb-10">
@@ -30,7 +31,11 @@ export default function SingleBlogDetails({ blogId }: { blogId: string }) {
             <div className="flex flex-wrap gap-x-20 gap-y-4">
               <div className="flex gap-x-2">
                 <CalendarDays className="text-gray-400" />
-                <p>{data?.data.createdAt ? getLocalDate(data?.data.createdAt) : "N/A" }</p>
+                <p>
+                  {data?.data.createdAt
+                    ? getLocalDate(data?.data.createdAt)
+                    : "N/A"}
+                </p>
               </div>
               <div className="flex gap-x-2">
                 <AtSign className="text-gray-400" />

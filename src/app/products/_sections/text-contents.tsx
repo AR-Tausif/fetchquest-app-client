@@ -25,7 +25,7 @@ export const TextContents = ({ product }: { product: IProduct }) => {
   const router = useRouter(); // Add this
 
   const targetedProductQuantity = useAppSelector(
-    (state) => selectCartItemById(state, product._id)?.quantity
+    (state) => selectCartItemById(state, product?._id)?.quantity
   );
 
   const handleAddToCart = async ({ quantity = 1 }: { quantity: number }) => {
@@ -92,7 +92,7 @@ export const TextContents = ({ product }: { product: IProduct }) => {
           </div>
         </div>
         <p className="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
-          {product.name}
+          {product?.name}
         </p>
       </div>
       <div className="mt-4 space-y-6">
@@ -166,14 +166,14 @@ export const TextContents = ({ product }: { product: IProduct }) => {
           </a>
         </div> */}
         <p className="text-2xl font-extrabold text-[#DA5DA3] sm:text-3xl dark:text-white">
-          ${product.price}
+          ${product?.price}
         </p>
         {/* <p className="text-sm">Tax Included</p> */}
 
         <div className="flex gap-x-2 items-center">
           <div className="w-3 h-3 rounded-sm bg-[#DA5DA3]"></div>
           <p className="">
-            {product.stock <= 0
+            {product?.stock <= 0
               ? "Out of stock"
               : "In stock, ready to be shipped"}
             {/* In stock, ready to be shipped */}
