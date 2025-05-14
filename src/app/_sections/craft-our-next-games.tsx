@@ -25,7 +25,7 @@ export const CraftOurNextGames = () => {
     },
   };
 
-  const SLIDES = gameSlide.reverse();
+  const SLIDES = gameSlide;
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
   const {
     prevBtnDisabled,

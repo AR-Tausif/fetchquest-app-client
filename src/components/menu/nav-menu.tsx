@@ -209,23 +209,28 @@ import { setUser } from "@/redux/features/auth.slice";
 import { useGetAllGames } from "@/hooks/rtk-queries/useGetAllGames";
 import { Sheet, SheetTrigger } from "../ui/sheet";
 import { ShoppingCartSheetContent } from "../sheets";
+import { demoUserProfile } from "@/utils/demo-data";
 const UserAccountLink = () => {
   const { isAuthenticated } = useAuth();
-  const { data: myProfile, isLoading: myProfileLoading } =
-    useGetProfileQuery(undefined);
+  const { data: myProfile, isLoading: myProfileLoading, isError } = useGetProfileQuery(undefined, {
+    // Add error handling options
+    skip: !isAuthenticated,
+    selectFromResult: (result) => ({
+      ...result,
+      data: result.isError ? demoUserProfile : result.data
+    })
+  });
+
   const dispatch = useAppDispatch();
   const router = useRouter();
 
   const handleLogout = () => {
     dispatch(setUser({ user: null, token: null }));
     Cookies.remove("auth");
-
     router.push("/login");
-
-    // router.push("/login");
-    // window.location.href = "/login";
   };
 
+  // Show loading state
   if (myProfileLoading) {
     return (
       <NavigationMenuItem className="px-4">
@@ -237,6 +242,7 @@ const UserAccountLink = () => {
     );
   }
 
+  // Show login button for non-authenticated users
   if (!isAuthenticated) {
     return (
       <NavigationMenuItem className="px-4">
@@ -252,6 +258,9 @@ const UserAccountLink = () => {
     );
   }
 
+  // Show user profile (either real or demo data)
+  const userData = myProfile?.data;
+  
   return (
     <NavigationMenuItem className="px-4">
       <NavigationMenuLink>
@@ -259,13 +268,13 @@ const UserAccountLink = () => {
           <DropdownMenuTrigger asChild>
             <div className={`${FONT_SIZE} flex gap-x-2 ${HOVER_STYLE}`}>
               <Image
-                src={myProfile?.data?.image || "https://i.pinimg.com/736x/15/0f/a8/150fa8800b0a0d5633abc1d1c4db3d87.jpg"}
+                src={userData?.image || "https://i.pinimg.com/736x/15/0f/a8/150fa8800b0a0d5633abc1d1c4db3d87.jpg"}
                 alt="user account image"
                 className="rounded-full"
                 width={32}
                 height={32}
               />
-              <p>{myProfile?.data?.name}</p>
+              <p>{userData?.name || "Demo User"}</p>
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
@@ -275,6 +284,11 @@ const UserAccountLink = () => {
               <DropdownMenuItem asChild>
                 <Link href="/profile">Profile</Link>
               </DropdownMenuItem>
+              {isError && (
+                <DropdownMenuItem className="text-yellow-600 text-sm">
+                  Using Demo Mode
+                </DropdownMenuItem>
+              )}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleLogout}>Log out</DropdownMenuItem>

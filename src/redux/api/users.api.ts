@@ -1,6 +1,7 @@
 import { IMyProfile, IResponse } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
 import { tagTypes } from "../tag.types";
+import { demoUserProfile } from "@/utils/demo-data";
 
 const usersApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -10,6 +11,8 @@ const usersApi = fetchquestBaseApi.injectEndpoints({
         method: "GET",
       }),
       providesTags: [tagTypes.user, tagTypes.auth],
+      // Add transformResponse to handle errors
+      transformErrorResponse: () => demoUserProfile,
     }),
 
     editProfile: builder.mutation<IResponse<IMyProfile>, FormData>({

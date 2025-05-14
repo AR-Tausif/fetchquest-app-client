@@ -2,6 +2,7 @@ import { IResponse } from "@/types/redux/auth";
 import { fetchquestBaseApi } from ".";
 import { tagTypes } from "../tag.types";
 import { IGameResponse } from "@/types/redux/games";
+import { demoGames } from "@/utils/demo-data";
 
 const gamesApi = fetchquestBaseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -11,6 +12,7 @@ const gamesApi = fetchquestBaseApi.injectEndpoints({
         method: "GET",
       }),
       providesTags: [tagTypes.user],
+      transformErrorResponse: () => demoGames,
     }),
   }),
 });

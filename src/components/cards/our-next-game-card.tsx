@@ -1,5 +1,6 @@
 import { IGameCardContent } from "@/types/home-page";
 
+
 interface IOurNextGameCardProps {
   content: IGameCardContent;
 }
@@ -36,3 +37,5 @@ export const OurNextGameCard = ({ content }: IOurNextGameCardProps) => {
     </div>
   );
 };
+
+
