@@ -24,18 +24,34 @@ export const demoGames = {
       {
         id: "demo-game-1",
         gameName: "Dragon Quest Demo",
-        posterImg: "/images/games/game-1.jpg",
+        posterImg: "/images/pages/who-we-are/section-two/slide-img-4.png",
         description: "An epic adventure awaits in this demo version",
         site: "https://demo-game-1.fetchquest.com",
-        date: new Date().toISOString()
+        date: "2023-01-01",
       },
       {
         id: "demo-game-2",
         gameName: "Space Explorer Demo",
-        posterImg: "/images/games/game-2.jpg",
+        posterImg: "/images/pages/who-we-are/section-two/slide-img-3.png",
         description: "Explore the universe in this demo version",
         site: "https://demo-game-2.fetchquest.com",
-        date: new Date().toISOString()
+        date: "2023-01-01",
+      },
+      {
+        id: "demo-game-3",
+        gameName: "Car Racing Demo",
+        posterImg: "/images/pages/who-we-are/section-two/slide-img-1.png",
+        description: "Explore the universe in this demo version",
+        site: "https://demo-game-2.fetchquest.com",
+        date: "2023-01-01",
+      },
+      {
+        id: "demo-game-4",
+        gameName: "Alone Demon Slayer",
+        posterImg: "/images/pages/who-we-are/section-two/slide-img-5.png",
+        description: "Explore the universe in this demo version",
+        site: "https://demo-game-2.fetchquest.com",
+        date: "2023-01-01",
       },
     ]
   }
